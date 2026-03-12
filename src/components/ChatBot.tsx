@@ -19,38 +19,38 @@ function getBotResponse(message: string): string {
   const lower = message.toLowerCase();
 
   if (lower.includes("שלום") || lower.includes("היי") || lower.includes("הי") || lower.includes("בוקר")) {
-    return "היי! 👋 אני Ace, סוכן הספורט של WinnerTips.\n\nאני מנתח נתונים מאלפי משחקים כדי להביא לכם את ההמלצות הכי חזקות.\n\n🎯 רוצים המלצות? שאלו אותי!";
+    return "היי, אני Ace, סוכן הספורט של WinnerTips.\n\nאני מנתח נתונים מאלפי משחקים כדי להביא לכם את ההמלצות הכי חזקות.\n\nרוצים המלצות? שאלו אותי.";
   }
 
   if (lower.includes("מי אתה") || lower.includes("מה אתה")) {
-    return "🤖 אני Ace - סוכן הספורט החכם של WinnerTips!\n\nאני מערכת AI שמנתחת:\n📊 סטטיסטיקות מ-50+ ליגות\n📈 ביצועים של 10,000+ קבוצות\n🔄 נתוני זמן אמת\n\nאחוז ההצלחה שלי: 78%\nהתמחות: כדורגל, כדורסל, טניס";
+    return "אני Ace - סוכן הספורט החכם של WinnerTips.\n\nאני מערכת AI שמנתחת:\n- סטטיסטיקות מ-50+ ליגות\n- ביצועים של 10,000+ קבוצות\n- נתוני זמן אמת\n\nאחוז ההצלחה שלי: 78%\nהתמחות: כדורגל, כדורסל, טניס";
   }
 
   if (lower.includes("המלצה") || lower.includes("טיפ") || lower.includes("חמה")) {
-    return "🔥 **ההמלצות החמות שלי להיום:**\n\n⚽ מנצ'סטר סיטי vs ארסנל\n→ מעל 2.5 שערים | 1.85 | 82%\n\n🏀 לייקרס vs סלטיקס\n→ לייקרס +4.5 | 1.90 | 79%\n\n🎾 ג'וקוביץ' vs סינר\n→ ג'וקוביץ' 2-0 | 1.75 | 83%\n\nכל ההמלצות עם ניתוח מלא למעלה! ☝️";
+    return "ההמלצות החמות שלי להיום:\n\nכדורגל - מנצ'סטר סיטי vs ארסנל\nמעל 2.5 שערים | 1.85 | 82%\n\nכדורסל - לייקרס vs סלטיקס\nלייקרס +4.5 | 1.90 | 79%\n\nטניס - ג'וקוביץ' vs סינר\nג'וקוביץ' 2-0 | 1.75 | 83%\n\nכל ההמלצות עם ניתוח מלא למעלה.";
   }
 
   if (lower.includes("משחק") || lower.includes("הערב") || lower.includes("היום")) {
-    return "📋 **לוח המשחקים להיום:**\n\n🕐 17:00 ליברפול vs צ'לסי\n🕐 20:15 מכבי ת\"א vs הפועל ב\"ש\n🕐 21:45 אינטר vs יובנטוס\n🕐 22:00 ריאל vs ברצלונה\n🕐 03:00 לייקרס vs סלטיקס\n\nלכולם יש ניתוח + המלצה באתר!";
+    return "לוח המשחקים להיום:\n\n17:00 ליברפול vs צ'לסי\n20:15 מכבי ת\"א vs הפועל ב\"ש\n21:45 אינטר vs יובנטוס\n22:00 ריאל vs ברצלונה\n03:00 לייקרס vs סלטיקס\n\nלכולם יש ניתוח והמלצה באתר.";
   }
 
   if (lower.includes("אחוז") || lower.includes("הצלחה") || lower.includes("סטטיסטיקה")) {
-    return "📊 **הביצועים שלי (Ace AI):**\n\n⚽ כדורגל: 76% ✅\n🏀 כדורסל: 82% ✅\n🎾 טניס: 74% ✅\n🏒 הוקי: 71% ✅\n\n📈 ממוצע כללי: **78%**\n📈 1,250+ ניתוחים החודש\n🔥 רצף אחרון: 8/10 הצלחה";
+    return "הביצועים שלי (Ace AI):\n\nכדורגל: 76%\nכדורסל: 82%\nטניס: 74%\nהוקי: 71%\n\nממוצע כללי: 78%\n1,250+ ניתוחים החודש\nרצף אחרון: 8/10 הצלחה";
   }
 
   if (lower.includes("ווצאפ") || lower.includes("וואטסאפ") || lower.includes("whatsapp") || lower.includes("קבוצ")) {
-    return "📱 **קבוצת VIP בווצאפ:**\n\nhttps://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm\n\nאו לחצו על הכפתור הירוק למטה!\n\n✅ המלצות בזמן אמת\n✅ ניתוחים בלעדיים של Ace\n✅ עדכוני סקורים חיים\n✅ תמיכה 24/7";
+    return "קבוצת VIP בווצאפ:\n\nhttps://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm\n\nאו לחצו על הכפתור הירוק למטה.\n\n- המלצות בזמן אמת\n- ניתוחים בלעדיים של Ace\n- עדכוני סקורים חיים\n- תמיכה 24/7";
   }
 
   if (lower.includes("ליג") || lower.includes("ספורט")) {
-    return "🌍 **אני מכסה 50+ ליגות:**\n\n⚽ פרמייר ליג, לה ליגה, סרייה A, בונדסליגה, ליג 1, UCL, ליגת העל\n🏀 NBA, יורוליג\n🎾 ATP, WTA, גרנד סלאם\n🏒 NHL\n🥊 UFC\n⚾ MLB\n\nושלל ליגות נוספות מכל העולם!";
+    return "אני מכסה 50+ ליגות:\n\nכדורגל: פרמייר ליג, לה ליגה, סרייה A, בונדסליגה, ליג 1, UCL, ליגת העל\nכדורסל: NBA, יורוליג\nטניס: ATP, WTA, גרנד סלאם\nהוקי: NHL\nלחימה: UFC\nבייסבול: MLB\n\nושלל ליגות נוספות מכל העולם.";
   }
 
   if (lower.includes("תודה") || lower.includes("אחלה") || lower.includes("מעולה") || lower.includes("תותח")) {
-    return "בכיף! 😎\n\nAce תמיד כאן בשבילכם.\nאל תשכחו לבדוק את ההמלצות היומיות!\n\n💪 בהצלחה!";
+    return "בכיף.\n\nAce תמיד כאן בשבילכם.\nאל תשכחו לבדוק את ההמלצות היומיות.\n\nבהצלחה!";
   }
 
-  return "🎯 היי, אני Ace! אני יכול לעזור עם:\n\n1️⃣ המלצות ספורט יומיות\n2️⃣ לוח משחקים\n3️⃣ סטטיסטיקות ואחוזי הצלחה\n4️⃣ הצטרפות לקבוצת VIP\n\nנסו לשאול אותי משהו! 🏆";
+  return "היי, אני Ace. אני יכול לעזור עם:\n\n1. המלצות ספורט יומיות\n2. לוח משחקים\n3. סטטיסטיקות ואחוזי הצלחה\n4. הצטרפות לקבוצת VIP\n\nנסו לשאול אותי משהו.";
 }
 
 // Ace Avatar SVG Component
@@ -95,7 +95,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "bot",
-      content: "👋 היי! אני Ace - סוכן הספורט החכם.\n\nאיך אפשר לעזור היום?",
+      content: "היי, אני Ace - סוכן הספורט החכם.\n\nאיך אפשר לעזור היום?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -122,7 +122,7 @@ export default function ChatBot() {
       {/* Toggle Button with Ace avatar */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 left-6 z-50 w-14 h-14 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300 animate-glow-pulse border-2 border-amber-500/30"
+        className="fixed bottom-24 left-6 z-50 w-14 h-14 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300 border-2 border-amber-500/30"
         aria-label="צ'אט עם Ace"
       >
         {isOpen ? (
@@ -153,7 +153,7 @@ export default function ChatBot() {
                 </div>
                 <div className="text-[11px] text-black/60 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                  סוכן ספורט חכם • מחובר
+                  סוכן ספורט חכם - מחובר
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} className="w-8 h-8 rounded-lg bg-black/10 flex items-center justify-center hover:bg-black/20 transition-colors">

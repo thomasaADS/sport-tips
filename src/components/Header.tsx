@@ -3,28 +3,28 @@
 import { useState, useEffect } from "react";
 
 const sports = [
-  { name: "הכל", id: "all", icon: "🏆" },
-  { name: "כדורגל", id: "football", icon: "⚽" },
-  { name: "כדורסל", id: "basketball", icon: "🏀" },
-  { name: "טניס", id: "tennis", icon: "🎾" },
-  { name: "הוקי", id: "hockey", icon: "🏒" },
-  { name: "MMA", id: "mma", icon: "🥊" },
-  { name: "בייסבול", id: "baseball", icon: "⚾" },
+  { name: "הכל", id: "all", color: "#f59e0b" },
+  { name: "כדורגל", id: "football", color: "#10b981" },
+  { name: "כדורסל", id: "basketball", color: "#3b82f6" },
+  { name: "טניס", id: "tennis", color: "#8b5cf6" },
+  { name: "הוקי", id: "hockey", color: "#06b6d4" },
+  { name: "MMA", id: "mma", color: "#ef4444" },
+  { name: "בייסבול", id: "baseball", color: "#f97316" },
 ];
 
 const navLinks = [
-  { name: "המלצות", href: "#tips", icon: "🔥" },
-  { name: "חדשות", href: "#news", icon: "📰" },
-  { name: "סטטיסטיקות", href: "#stats", icon: "📊" },
-  { name: "ליגות", href: "#leagues", icon: "🌍" },
+  { name: "המלצות", href: "#tips" },
+  { name: "חדשות", href: "#news" },
+  { name: "סטטיסטיקות", href: "#stats" },
+  { name: "ליגות", href: "#leagues" },
 ];
 
 function Logo() {
   return (
     <div className="flex items-center gap-3">
       <div className="relative">
-        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg animate-glow-pulse">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z"
               fill="#0a0b14"
@@ -39,7 +39,7 @@ function Logo() {
           WinnerTips
         </span>
         <span className="text-[10px] font-medium text-[var(--color-text-muted)] tracking-widest uppercase">
-          Pro Sports Tips
+          Pro Sports Analytics
         </span>
       </div>
     </div>
@@ -79,15 +79,15 @@ export default function Header({
         <div className="ticker-wrap max-w-7xl mx-auto px-4">
           <div className="ticker text-xs text-[var(--color-text-muted)] font-medium">
             <span className="flex items-center gap-2">
-              <span className="text-[var(--color-danger)]">●</span> LIVE
+              <span className="text-[var(--color-danger)]">&#9679;</span> LIVE
             </span>
-            <span>⚽ ליברפול 2-1 מנצ&apos;סטר סיטי (78&apos;)</span>
-            <span>🏀 לייקרס 98-105 סלטיקס (Q4)</span>
-            <span>⚽ ברצלונה 1-0 אתלטיקו (45&apos;+2)</span>
-            <span>🎾 ג&apos;וקוביץ&apos; 6-4 3-2 סינר (סט 2)</span>
-            <span>⚽ באיירן 3-1 דורטמונד (FT)</span>
-            <span>🏀 ווריורס 112-108 נאגטס (FT)</span>
-            <span>⚽ PSG 0-0 מרסיי (32&apos;)</span>
+            <span>ליברפול 2-1 מנצ&apos;סטר סיטי (78&apos;)</span>
+            <span>לייקרס 98-105 סלטיקס (Q4)</span>
+            <span>ברצלונה 1-0 אתלטיקו (45&apos;+2)</span>
+            <span>ג&apos;וקוביץ&apos; 6-4 3-2 סינר (סט 2)</span>
+            <span>באיירן 3-1 דורטמונד (FT)</span>
+            <span>ווריורס 112-108 נאגטס (FT)</span>
+            <span>PSG 0-0 מרסיי (32&apos;)</span>
           </div>
         </div>
       </div>
@@ -108,13 +108,12 @@ export default function Header({
                   onSectionChange(link.href.replace("#", ""));
                   document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeSection === link.href.replace("#", "")
                     ? "bg-[var(--color-accent-primary)]/10 text-[var(--color-accent-secondary)] border border-[var(--color-border-accent)]"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)]"
                 }`}
               >
-                <span className="text-base">{link.icon}</span>
                 {link.name}
               </a>
             ))}
@@ -129,7 +128,6 @@ export default function Header({
               className="hidden sm:flex items-center gap-2 btn-primary text-sm"
             >
               <span>הצטרפו לקבוצת VIP</span>
-              <span>👑</span>
             </a>
 
             <button
@@ -163,9 +161,8 @@ export default function Header({
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)] transition-all"
+                className="px-4 py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)] transition-all"
               >
-                <span className="text-lg">{link.icon}</span>
                 {link.name}
               </a>
             ))}
@@ -184,7 +181,10 @@ export default function Header({
                   : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
               }`}
             >
-              <span>{sport.icon}</span>
+              <span
+                className="w-2 h-2 rounded-full flex-shrink-0"
+                style={{ background: sport.color }}
+              />
               <span>{sport.name}</span>
             </button>
           ))}

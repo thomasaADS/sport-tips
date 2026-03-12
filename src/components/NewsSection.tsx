@@ -11,7 +11,6 @@ const newsArticles = [
     time: "לפני שעתיים",
     views: "12.5K",
     isHot: true,
-    icon: "⚽",
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ const newsArticles = [
     time: "לפני 4 שעות",
     views: "8.3K",
     isHot: false,
-    icon: "🏀",
   },
   {
     id: 3,
@@ -35,7 +33,6 @@ const newsArticles = [
     time: "לפני 6 שעות",
     views: "5.1K",
     isHot: false,
-    icon: "🎾",
   },
   {
     id: 4,
@@ -47,7 +44,6 @@ const newsArticles = [
     time: "לפני 8 שעות",
     views: "18.2K",
     isHot: true,
-    icon: "⚽",
   },
   {
     id: 5,
@@ -59,7 +55,6 @@ const newsArticles = [
     time: "אתמול",
     views: "22.7K",
     isHot: false,
-    icon: "🏆",
   },
   {
     id: 6,
@@ -71,7 +66,6 @@ const newsArticles = [
     time: "אתמול",
     views: "9.8K",
     isHot: false,
-    icon: "🥊",
   },
 ];
 
@@ -81,15 +75,15 @@ export default function NewsSection() {
   const bottom = newsArticles.slice(4);
 
   return (
-    <section id="news" className="py-16 px-4">
+    <section id="news" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
             <div className="w-1 h-8 rounded-full bg-gradient-to-b from-red-500 to-amber-500" />
             <div>
               <h2 className="text-2xl md:text-3xl font-black text-white">מגזין ספורט</h2>
-              <p className="text-sm text-[var(--color-text-muted)]">חדשות • ניתוחים • עדכונים</p>
+              <p className="text-sm text-[var(--color-text-muted)]">חדשות / ניתוחים / עדכונים</p>
             </div>
           </div>
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20">
@@ -102,7 +96,7 @@ export default function NewsSection() {
         </div>
 
         {/* Main Grid */}
-        <div className="grid lg:grid-cols-5 gap-4 mb-4">
+        <div className="grid lg:grid-cols-5 gap-5 mb-5">
           {/* Featured */}
           <div className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all">
             <div className="relative h-64 md:h-80 overflow-hidden">
@@ -110,44 +104,48 @@ export default function NewsSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-deep)] via-[var(--color-bg-deep)]/50 to-transparent" />
               {main.isHot && (
                 <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500 text-white text-[11px] font-bold shadow-lg">
-                  🔥 חם עכשיו
+                  Breaking
                 </div>
               )}
               <div className="absolute bottom-0 right-0 left-0 p-6">
-                <span className="inline-block px-2.5 py-1 rounded-lg text-[10px] font-bold text-white mb-3" style={{ background: main.catColor }}>
-                  {main.icon} {main.category}
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-bold text-white mb-3" style={{ background: main.catColor }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                  {main.category}
                 </span>
-                <h3 className="text-xl md:text-2xl font-black text-white leading-tight mb-2 group-hover:text-amber-400 transition-colors">
+                <h3 className="text-xl md:text-2xl font-black text-white leading-tight mb-3 group-hover:text-amber-400 transition-colors">
                   {main.title}
                 </h3>
                 <p className="text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">{main.excerpt}</p>
                 <div className="flex items-center gap-4 text-[11px] text-gray-400">
-                  <span>🕐 {main.time}</span>
-                  <span>👁 {main.views} צפיות</span>
+                  <span>{main.time}</span>
+                  <span className="w-1 h-1 rounded-full bg-gray-500" />
+                  <span>{main.views} צפיות</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Side */}
-          <div className="lg:col-span-2 flex flex-col gap-3">
+          <div className="lg:col-span-2 flex flex-col gap-4">
             {side.map((article) => (
               <div key={article.id} className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all flex-1">
                 <div className="relative w-28 md:w-36 flex-shrink-0 overflow-hidden">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 </div>
-                <div className="p-3 flex flex-col justify-between flex-1 min-w-0">
+                <div className="p-4 flex flex-col justify-between flex-1 min-w-0">
                   <div>
-                    <span className="inline-block px-2 py-0.5 rounded text-[9px] font-bold text-white mb-1.5" style={{ background: article.catColor }}>
-                      {article.icon} {article.category}
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9px] font-bold text-white mb-2" style={{ background: article.catColor }}>
+                      <span className="w-1 h-1 rounded-full bg-white/60" />
+                      {article.category}
                     </span>
                     <h4 className="text-[13px] font-bold text-white leading-snug group-hover:text-amber-400 transition-colors line-clamp-2">
                       {article.title}
                     </h4>
                   </div>
                   <div className="flex items-center gap-3 text-[10px] text-[var(--color-text-muted)] mt-2">
-                    <span>🕐 {article.time}</span>
-                    <span>👁 {article.views}</span>
+                    <span>{article.time}</span>
+                    <span className="w-1 h-1 rounded-full bg-[var(--color-text-dim)]" />
+                    <span>{article.views}</span>
                   </div>
                 </div>
               </div>
@@ -156,25 +154,27 @@ export default function NewsSection() {
         </div>
 
         {/* Bottom */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-5">
           {bottom.map((article) => (
             <div key={article.id} className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all">
               <div className="relative w-36 md:w-44 flex-shrink-0 overflow-hidden">
                 <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
               </div>
-              <div className="p-4 flex flex-col justify-between flex-1 min-w-0">
+              <div className="p-5 flex flex-col justify-between flex-1 min-w-0">
                 <div>
-                  <span className="inline-block px-2 py-0.5 rounded text-[9px] font-bold text-white mb-1.5" style={{ background: article.catColor }}>
-                    {article.icon} {article.category}
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9px] font-bold text-white mb-2" style={{ background: article.catColor }}>
+                    <span className="w-1 h-1 rounded-full bg-white/60" />
+                    {article.category}
                   </span>
-                  <h4 className="text-sm font-bold text-white leading-snug group-hover:text-amber-400 transition-colors line-clamp-2 mb-1">
+                  <h4 className="text-sm font-bold text-white leading-snug group-hover:text-amber-400 transition-colors line-clamp-2 mb-1.5">
                     {article.title}
                   </h4>
                   <p className="text-[11px] text-[var(--color-text-muted)] line-clamp-2">{article.excerpt}</p>
                 </div>
-                <div className="flex items-center gap-3 text-[10px] text-[var(--color-text-muted)] mt-2">
-                  <span>🕐 {article.time}</span>
-                  <span>👁 {article.views}</span>
+                <div className="flex items-center gap-3 text-[10px] text-[var(--color-text-muted)] mt-3">
+                  <span>{article.time}</span>
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-text-dim)]" />
+                  <span>{article.views}</span>
                 </div>
               </div>
             </div>
@@ -182,7 +182,7 @@ export default function NewsSection() {
         </div>
       </div>
 
-      <div className="section-divider mt-16" />
+      <div className="section-divider mt-20" />
     </section>
   );
 }

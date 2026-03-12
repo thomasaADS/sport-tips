@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
     >
       {/* Tooltip */}
       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block bg-[var(--color-bg-card)] text-[var(--color-text-primary)] text-xs font-bold px-4 py-2 rounded-xl shadow-xl border border-[var(--color-border-default)] whitespace-nowrap animate-fade-in-down">
-        הצטרפו לקבוצת VIP! 👑
+        הצטרפו לקבוצת VIP
         <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[var(--color-bg-card)]" />
       </span>
 
