@@ -1,14 +1,23 @@
 "use client";
 
 const recentResults = [
-  { match: "ריאל מדריד vs ברצלונה", tip: "1X", odds: "1.65", result: "win" as const },
-  { match: "לייקרס vs סלטיקס", tip: "תחתון +5.5", odds: "1.90", result: "win" as const },
-  { match: "ליברפול vs מנצ'סטר סיטי", tip: "מעל 2.5", odds: "1.75", result: "win" as const },
-  { match: "ג'וקוביץ' vs נדאל", tip: "1", odds: "1.55", result: "win" as const },
-  { match: "באיירן vs דורטמונד", tip: "GG", odds: "1.70", result: "loss" as const },
-  { match: "PSG vs מרסיי", tip: "1", odds: "1.40", result: "win" as const },
-  { match: "ווריורס vs נאגטס", tip: "מעל 220.5", odds: "1.85", result: "win" as const },
-  { match: "אינטר vs יובנטוס", tip: "X", odds: "3.20", result: "loss" as const },
+  { match: "ריאל מדריד vs ברצלונה", league: "לה ליגה", tip: "1X", odds: "1.65", result: "win" as const, sport: "⚽" },
+  { match: "לייקרס vs סלטיקס", league: "NBA", tip: "תחתון +5.5", odds: "1.90", result: "win" as const, sport: "🏀" },
+  { match: "ליברפול vs מנצ'סטר סיטי", league: "פרמייר ליג", tip: "מעל 2.5", odds: "1.75", result: "win" as const, sport: "⚽" },
+  { match: "ג'וקוביץ' vs סינר", league: "ATP", tip: "1", odds: "1.55", result: "win" as const, sport: "🎾" },
+  { match: "באיירן vs דורטמונד", league: "בונדסליגה", tip: "GG", odds: "1.70", result: "loss" as const, sport: "⚽" },
+  { match: "PSG vs מרסיי", league: "ליג 1", tip: "1", odds: "1.40", result: "win" as const, sport: "⚽" },
+  { match: "ווריורס vs נאגטס", league: "NBA", tip: "מעל 220.5", odds: "1.85", result: "win" as const, sport: "🏀" },
+  { match: "אינטר vs יובנטוס", league: "סרייה A", tip: "X", odds: "3.20", result: "loss" as const, sport: "⚽" },
+  { match: "מכבי ת\"א vs אולימפיאקוס", league: "יורוליג", tip: "מכבי +3.5", odds: "1.80", result: "win" as const, sport: "🏀" },
+  { match: "ריינג'רס vs פנגווינס", league: "NHL", tip: "מעל 5.5", odds: "1.90", result: "win" as const, sport: "🏒" },
+];
+
+const sportStats = [
+  { sport: "כדורגל", icon: "⚽", wins: 156, total: 205, color: "var(--color-success)" },
+  { sport: "כדורסל", icon: "🏀", wins: 89, total: 108, color: "var(--color-accent-blue)" },
+  { sport: "טניס", icon: "🎾", wins: 62, total: 84, color: "var(--color-accent-purple)" },
+  { sport: "הוקי", icon: "🏒", wins: 38, total: 52, color: "var(--color-accent-cyan)" },
 ];
 
 export default function StatsSection() {
@@ -17,68 +26,145 @@ export default function StatsSection() {
   const winRate = Math.round((wins / total) * 100);
 
   return (
-    <section id="stats" className="py-12 px-4">
+    <section id="stats" className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-2xl font-bold mb-8 text-center">
-          <span className="shimmer-text">תוצאות אחרונות</span>
-        </h3>
-
-        {/* Win rate bar */}
-        <div className="max-w-md mx-auto mb-8 glass rounded-2xl p-6">
-          <div className="flex justify-between mb-2">
-            <span className="text-sm text-[var(--color-text-secondary)]">
-              אחוז הצלחה אחרון
-            </span>
-            <span className="text-sm font-bold text-[var(--color-green)]">
-              {winRate}%
-            </span>
-          </div>
-          <div className="h-3 rounded-full bg-[var(--color-surface)] overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-l from-[var(--color-green)] to-[var(--color-green-dark)] transition-all duration-1000"
-              style={{ width: `${winRate}%` }}
-            ></div>
-          </div>
-          <div className="flex justify-between mt-2 text-xs text-[var(--color-text-secondary)]">
-            <span>
-              {wins} \u2714 | {total - wins} \u2716
-            </span>
-            <span>מתוך {total} המלצות</span>
+        {/* Section header */}
+        <div className="flex items-center gap-3 mb-10">
+          <div className="w-1 h-8 rounded-full bg-gradient-to-b from-[var(--color-accent-blue)] to-[var(--color-accent-purple)]" />
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-text-white)]">
+              סטטיסטיקות & תוצאות
+            </h2>
+            <p className="text-sm text-[var(--color-text-muted)]">
+              ביצועים מוכחים • שקיפות מלאה
+            </p>
           </div>
         </div>
 
-        {/* Results list */}
-        <div className="max-w-2xl mx-auto space-y-2">
-          {recentResults.map((item, i) => (
-            <div
-              key={i}
-              className="glass rounded-xl p-3 flex items-center justify-between animate-fade-in-up"
-              style={{ animationDelay: `${i * 0.05}s` }}
-            >
-              <div className="flex items-center gap-3">
-                <span
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                    item.result === "win"
-                      ? "bg-[var(--color-green)]/20 text-[var(--color-green)]"
-                      : "bg-[var(--color-red)]/20 text-[var(--color-red)]"
-                  }`}
-                >
-                  {item.result === "win" ? "\u2714" : "\u2716"}
-                </span>
-                <div>
-                  <div className="text-sm font-medium">{item.match}</div>
-                  <div className="text-xs text-[var(--color-text-secondary)]">
-                    {item.tip}
+        <div className="grid lg:grid-cols-3 gap-6">
+          {/* Sport breakdown cards */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">
+              📊 פירוט לפי ענף
+            </h3>
+            {sportStats.map((stat) => {
+              const pct = Math.round((stat.wins / stat.total) * 100);
+              return (
+                <div key={stat.sport} className="card p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">{stat.icon}</span>
+                      <span className="text-sm font-bold text-[var(--color-text-white)]">
+                        {stat.sport}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-[var(--color-text-muted)]">
+                        {stat.wins}/{stat.total}
+                      </span>
+                      <span
+                        className="text-sm font-black"
+                        style={{ color: stat.color }}
+                      >
+                        {pct}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="confidence-meter">
+                    <div
+                      className="confidence-meter-fill"
+                      style={{
+                        width: `${pct}%`,
+                        background: stat.color,
+                      }}
+                    />
                   </div>
                 </div>
+              );
+            })}
+
+            {/* Overall card */}
+            <div className="card-accent p-5">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-bold text-[var(--color-text-white)]">
+                  🏆 אחוז הצלחה כללי
+                </span>
+                <span className="text-2xl font-black text-[var(--color-accent-primary)]">
+                  {winRate}%
+                </span>
               </div>
-              <span className="text-sm font-bold text-[var(--color-gold)]">
-                {item.odds}
-              </span>
+              <div className="confidence-meter" style={{ height: "6px" }}>
+                <div
+                  className="confidence-meter-fill"
+                  style={{
+                    width: `${winRate}%`,
+                    height: "100%",
+                    background: "linear-gradient(90deg, var(--color-accent-tertiary), var(--color-accent-primary), var(--color-accent-secondary))",
+                  }}
+                />
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Recent results list */}
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">
+              📋 תוצאות אחרונות
+            </h3>
+            <div className="space-y-2">
+              {recentResults.map((item, i) => (
+                <div
+                  key={i}
+                  className="card p-0 overflow-hidden animate-fade-in-up"
+                  style={{ animationDelay: `${i * 0.04}s` }}
+                >
+                  <div className="flex items-center">
+                    {/* Result indicator stripe */}
+                    <div
+                      className="w-1 self-stretch flex-shrink-0"
+                      style={{
+                        background:
+                          item.result === "win"
+                            ? "var(--color-success)"
+                            : "var(--color-danger)",
+                      }}
+                    />
+
+                    <div className="flex items-center justify-between flex-1 px-4 py-3">
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
+                        <span className="text-lg flex-shrink-0">{item.sport}</span>
+                        <div className="min-w-0">
+                          <div className="text-sm font-bold text-[var(--color-text-white)] truncate">
+                            {item.match}
+                          </div>
+                          <div className="text-[10px] text-[var(--color-text-muted)]">
+                            {item.league} • {item.tip}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <span className="odds-badge text-sm">{item.odds}</span>
+                        <div
+                          className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${
+                            item.result === "win"
+                              ? "bg-[var(--color-success-bg)] text-[var(--color-success)]"
+                              : "bg-[var(--color-danger-bg)] text-[var(--color-danger)]"
+                          }`}
+                        >
+                          {item.result === "win" ? "✓" : "✗"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      <div className="section-divider mt-16" />
     </section>
   );
 }
