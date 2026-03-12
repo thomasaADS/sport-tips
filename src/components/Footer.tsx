@@ -100,7 +100,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-[11px] text-[var(--color-text-muted)]">ווצאפ</div>
-                  <div className="text-sm text-[var(--color-text-secondary)]">050-123-4567</div>
+                  <div className="text-sm text-[var(--color-text-secondary)]">052-359-3540</div>
                 </div>
               </li>
               <li className="flex items-center gap-3">
