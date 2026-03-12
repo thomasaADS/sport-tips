@@ -123,7 +123,7 @@ export default function Header({
           {/* CTA + Mobile Menu */}
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/972501234567"
+              href="https://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 btn-primary text-sm"

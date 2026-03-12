@@ -1,14 +1,9 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "972501234567";
-  const message = encodeURIComponent(
-    "שלום! אני מעוניין להצטרף לקבוצת ההמלצות של WinnerTips"
-  );
-
   return (
     <a
-      href={`https://wa.me/${phoneNumber}?text=${message}`}
+      href="https://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 left-6 z-50 group"

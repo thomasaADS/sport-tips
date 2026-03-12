@@ -34,7 +34,7 @@ function getBotResponse(message: string): string {
   }
 
   if (lower.includes("ווצאפ") || lower.includes("וואטסאפ") || lower.includes("whatsapp") || lower.includes("קבוצ")) {
-    return "📱 **הצטרפו לקבוצת VIP בווצאפ:**\n\nלחצו על כפתור הווצאפ הירוק בצד שמאל למטה!\n\nבקבוצה:\n✅ המלצות בזמן אמת\n✅ עדכונים על משחקים\n✅ ניתוחים בלעדיים\n✅ תמיכה אישית";
+    return "📱 **הצטרפו לקבוצת VIP בווצאפ:**\n\nלחצו על הקישור להצטרפות:\nhttps://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm\n\nאו לחצו על כפתור הווצאפ הירוק בצד שמאל למטה!\n\nבקבוצה:\n✅ המלצות בזמן אמת\n✅ עדכונים על משחקים\n✅ ניתוחים בלעדיים\n✅ תמיכה אישית";
   }
 
   if (lower.includes("ליג") || lower.includes("ספורט")) {
