@@ -3,41 +3,41 @@
 /* Heebo font loaded via <link> in layout.tsx */
 
 @theme {
-  /* Dark palette - slightly warmer, more contrast */
-  --color-bg-deep: #0a0e15;
-  --color-bg-primary: #0f1520;
-  --color-bg-secondary: #151c28;
-  --color-bg-card: #1a2332;
-  --color-bg-card-hover: #202d3e;
-  --color-bg-elevated: #283848;
-  --color-bg-input: #1a2332;
+  /* Premium dark navy palette */
+  --color-bg-deep: #0b0f1a;
+  --color-bg-primary: #101624;
+  --color-bg-secondary: #161d2e;
+  --color-bg-card: #1c2438;
+  --color-bg-card-hover: #232d44;
+  --color-bg-elevated: #2a3550;
+  --color-bg-input: #1c2438;
 
-  /* Vibrant accent palette */
-  --color-accent-primary: #00e6b8;
-  --color-accent-secondary: #40f0d0;
-  --color-accent-tertiary: #00c99e;
-  --color-accent-glow: rgba(0, 230, 184, 0.2);
-  --color-accent-blue: #60b4ff;
-  --color-accent-blue-glow: rgba(96, 180, 255, 0.2);
-  --color-accent-purple: #c9a0ff;
-  --color-accent-cyan: #45e0ef;
+  /* Gold / Amber premium accents */
+  --color-accent-primary: #f0b030;
+  --color-accent-secondary: #ffc850;
+  --color-accent-tertiary: #e09820;
+  --color-accent-glow: rgba(240, 176, 48, 0.2);
+  --color-accent-blue: #5ba8f5;
+  --color-accent-blue-glow: rgba(91, 168, 245, 0.2);
+  --color-accent-purple: #b98eff;
+  --color-accent-cyan: #3ed0e0;
 
-  --color-success: #4ecb5f;
-  --color-success-bg: rgba(78, 203, 95, 0.12);
-  --color-danger: #ff6b63;
-  --color-danger-bg: rgba(255, 107, 99, 0.12);
+  --color-success: #34d058;
+  --color-success-bg: rgba(52, 208, 88, 0.12);
+  --color-danger: #f55050;
+  --color-danger-bg: rgba(245, 80, 80, 0.12);
   --color-warning: #f0a830;
   --color-warning-bg: rgba(240, 168, 48, 0.12);
 
-  --color-text-white: #f4f8ff;
-  --color-text-primary: #d0d8e4;
-  --color-text-secondary: #97a3b3;
-  --color-text-muted: #7a8694;
-  --color-text-dim: #525e6e;
+  --color-text-white: #f0f4fa;
+  --color-text-primary: #c8d0dc;
+  --color-text-secondary: #94a0b4;
+  --color-text-muted: #6b7a8e;
+  --color-text-dim: #4a5568;
 
-  --color-border-subtle: rgba(240, 248, 255, 0.08);
-  --color-border-default: rgba(240, 248, 255, 0.13);
-  --color-border-accent: rgba(0, 230, 184, 0.35);
+  --color-border-subtle: rgba(200, 215, 240, 0.08);
+  --color-border-default: rgba(200, 215, 240, 0.14);
+  --color-border-accent: rgba(240, 176, 48, 0.35);
 
   --color-whatsapp: #25d366;
 
@@ -45,8 +45,8 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(0, 212, 170, 0.1);
-  --shadow-glow-blue: 0 0 40px rgba(88, 166, 255, 0.1);
+  --shadow-glow: 0 0 40px rgba(240, 176, 48, 0.1);
+  --shadow-glow-blue: 0 0 40px rgba(91, 168, 245, 0.1);
 }
 
 *, *::before, *::after {
@@ -175,7 +175,7 @@ body {
 
 /* === Premium Text Effects === */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #33e8c0 0%, #00d4aa 30%, #f0f6fc 50%, #00d4aa 70%, #00b894 100%);
+  background: linear-gradient(135deg, #ffc850 0%, #f0b030 30%, #fff5e0 50%, #f0b030 70%, #e09820 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -191,7 +191,7 @@ body {
 }
 
 .text-gradient-multi {
-  background: linear-gradient(135deg, #00d4aa, #58a6ff, #bc8cff, #f85149, #3fb950);
+  background: linear-gradient(135deg, #f0b030, #5ba8f5, #b98eff, #f55050, #34d058);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

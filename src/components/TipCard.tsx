@@ -46,8 +46,8 @@ function ConfidenceRing({ value }: { value: number }) {
 function ResultBadge({ result }: { result?: "win" | "loss" | "pending" }) {
   if (result === "win") {
     return (
-      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> WIN
+      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 text-[10px] font-bold text-amber-400 border border-amber-500/20">
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> WIN
       </span>
     );
   }
@@ -70,14 +70,14 @@ export default function TipCard({ tip }: { tip: Tip }) {
 
   const confGradient =
     tip.confidence >= 80
-      ? "from-emerald-500 to-emerald-400"
+      ? "from-amber-500 to-amber-400"
       : tip.confidence >= 65
         ? "from-amber-500 to-amber-400"
         : "from-blue-500 to-blue-400";
 
   return (
     <div
-      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-emerald-400/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,212,170,0.06)] overflow-hidden cursor-pointer"
+      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-400/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(240,176,48,0.06)] overflow-hidden cursor-pointer"
       onClick={() => setExpanded(!expanded)}
     >
       {/* Hot banner */}
@@ -118,7 +118,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
         {/* Teams */}
         <div className="flex items-center gap-3 mb-5 py-4 px-4 rounded-xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border-subtle)]">
           <div className="flex-1 text-center">
-            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-base font-black text-amber-400 mb-2">
+            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-base font-black text-[var(--color-accent-primary)] mb-2">
               {tip.homeTeam.charAt(0)}
             </div>
             <div className="text-[12px] font-bold text-white leading-tight">{tip.homeTeam}</div>

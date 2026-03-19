@@ -291,10 +291,10 @@ export default function HeroSection() {
             <div className="flex items-center gap-3">
               <div className="flex gap-0.5">
                 {[true,true,true,true,true,false,true,true,false,true].map((win, i) => (
-                  <span key={i} className={`w-2 h-2 rounded-full ${win ? "bg-emerald-400" : "bg-red-400"}`} />
+                  <span key={i} className={`w-2 h-2 rounded-full ${win ? "bg-amber-400" : "bg-red-400"}`} />
                 ))}
               </div>
-              <span className="text-xs text-[var(--color-text-muted)]">רצף: <span className="text-emerald-400 font-bold">8/10</span></span>
+              <span className="text-xs text-[var(--color-text-muted)]">רצף: <span className="text-amber-400 font-bold">8/10</span></span>
             </div>
             <span className="w-px h-5 bg-[var(--color-border-subtle)] hidden md:block" />
             <div className="flex items-center gap-2">
