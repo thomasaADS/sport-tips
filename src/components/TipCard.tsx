@@ -88,7 +88,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
         </div>
       )}
 
-      <div className="p-5">
+      <div className="p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">

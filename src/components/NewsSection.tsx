@@ -171,7 +171,7 @@ export default function NewsSection() {
         </div>
 
         {/* Main Grid */}
-        <div className="grid lg:grid-cols-5 gap-5 mb-5">
+        <div className="grid lg:grid-cols-5 gap-6 mb-6">
           {/* Featured */}
           <div
             className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all"
@@ -205,7 +205,7 @@ export default function NewsSection() {
           </div>
 
           {/* Side */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="lg:col-span-2 flex flex-col gap-5">
             {side.map((article) => (
               <div
                 key={article.id}
@@ -237,7 +237,7 @@ export default function NewsSection() {
         </div>
 
         {/* Bottom */}
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           {bottom.map((article) => (
             <div
               key={article.id}

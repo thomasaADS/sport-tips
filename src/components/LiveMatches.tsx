@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 interface LiveMatch {
   id: number;
@@ -63,11 +63,11 @@ const liveMatches: LiveMatch[] = [
   },
   {
     id: 6, league: "Ligue 1", leagueAbbr: "L1", leagueColor: "#091c3e",
-    homeTeam: "PSG", awayTeam: "מרסיי", homeScore: 2, awayScore: 0,
+    homeTeam: "ליון", awayTeam: "מרסיי", homeScore: 2, awayScore: 0,
     minute: 61, status: "live", homeOdds: "1.10", drawOdds: "11.00", awayOdds: "22.00",
     events: [
-      { type: "goal", minute: 15, team: "home", player: "דמבלה" },
-      { type: "goal", minute: 48, team: "home", player: "מבאפה" },
+      { type: "goal", minute: 15, team: "home", player: "לאקאזט" },
+      { type: "goal", minute: 48, team: "home", player: "שרקי" },
     ],
   },
   {
@@ -225,6 +225,22 @@ function MatchRow({
   const isFT = match.status === "ft";
   const matchKey = `${match.id}`;
 
+  // Deterministic stats based on match id (no Math.random)
+  const matchStats = useMemo(() => {
+    const seed = match.id * 7;
+    const p1 = 42 + (seed % 18);
+    const p2 = 100 - p1;
+    return {
+      possession: [p1, p2],
+      shots: [4 + (seed % 8), 3 + ((seed + 3) % 9)],
+      corners: [2 + (seed % 6), 1 + ((seed + 2) % 5)],
+      overOdds: (1.65 + ((seed % 5) * 0.1)).toFixed(2),
+      underOdds: (1.95 + ((seed % 4) * 0.1)).toFixed(2),
+      ggOdds: (1.55 + ((seed % 6) * 0.08)).toFixed(2),
+      ngOdds: (2.10 + ((seed % 5) * 0.1)).toFixed(2),
+    };
+  }, [match.id]);
+
   return (
     <div className={`group rounded-xl border transition-all duration-300 hover:-translate-y-0.5 ${
       isLive
@@ -349,32 +365,34 @@ function MatchRow({
         {isExpanded && (
           <div className="mt-3 pt-3 border-t border-[var(--color-border-subtle)] animate-fade-in-up space-y-3">
             {/* Match stats */}
-            <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="p-2 rounded-lg bg-[var(--color-bg-secondary)]">
-                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">החזקת כדור</div>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(40 + Math.random() * 20)}%</span>
-                  <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(40 + Math.random() * 20)}%</span>
+            {match.status !== "upcoming" && (
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="p-3 rounded-lg bg-[var(--color-bg-secondary)]">
+                  <div className="text-[10px] text-[var(--color-text-dim)] mb-1">החזקת כדור</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.possession[0]}%</span>
+                    <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.possession[1]}%</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-lg bg-[var(--color-bg-secondary)]">
+                  <div className="text-[10px] text-[var(--color-text-dim)] mb-1">בעיטות</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.shots[0]}</span>
+                    <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.shots[1]}</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-lg bg-[var(--color-bg-secondary)]">
+                  <div className="text-[10px] text-[var(--color-text-dim)] mb-1">קרנות</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.corners[0]}</span>
+                    <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
+                    <span className="text-xs font-bold text-[var(--color-text-white)]">{matchStats.corners[1]}</span>
+                  </div>
                 </div>
               </div>
-              <div className="p-2 rounded-lg bg-[var(--color-bg-secondary)]">
-                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">בעיטות</div>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(3 + Math.random() * 10)}</span>
-                  <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(3 + Math.random() * 10)}</span>
-                </div>
-              </div>
-              <div className="p-2 rounded-lg bg-[var(--color-bg-secondary)]">
-                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">קרנות</div>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(1 + Math.random() * 8)}</span>
-                  <span className="text-[9px] text-[var(--color-text-dim)]">-</span>
-                  <span className="text-xs font-bold text-[var(--color-text-white)]">{Math.floor(1 + Math.random() * 8)}</span>
-                </div>
-              </div>
-            </div>
+            )}
 
             {/* More odds markets */}
             {match.status !== "ft" && (
@@ -383,25 +401,25 @@ function MatchRow({
                 <div className="grid grid-cols-2 gap-2">
                   <OddsButton
                     label="מעל 2.5"
-                    value={(1.5 + Math.random() * 0.8).toFixed(2)}
+                    value={matchStats.overOdds}
                     isSelected={selectedOdds[matchKey] === "o2.5"}
                     onClick={() => onOddsSelect(match.id, "o2.5")}
                   />
                   <OddsButton
                     label="תחת 2.5"
-                    value={(1.8 + Math.random() * 0.8).toFixed(2)}
+                    value={matchStats.underOdds}
                     isSelected={selectedOdds[matchKey] === "u2.5"}
                     onClick={() => onOddsSelect(match.id, "u2.5")}
                   />
                   <OddsButton
                     label="GG"
-                    value={(1.5 + Math.random() * 0.5).toFixed(2)}
+                    value={matchStats.ggOdds}
                     isSelected={selectedOdds[matchKey] === "gg"}
                     onClick={() => onOddsSelect(match.id, "gg")}
                   />
                   <OddsButton
                     label="NG"
-                    value={(2.0 + Math.random() * 0.5).toFixed(2)}
+                    value={matchStats.ngOdds}
                     isSelected={selectedOdds[matchKey] === "ng"}
                     onClick={() => onOddsSelect(match.id, "ng")}
                   />
@@ -504,7 +522,7 @@ export default function LiveMatches() {
         </div>
 
         {/* Matches Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {filtered.map((match, i) => (
             <div key={match.id} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
               <MatchRow

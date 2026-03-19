@@ -36,7 +36,7 @@ export default function LeaguesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
           {leagues.map((league, i) => (
             <div
               key={league.name}
@@ -48,17 +48,17 @@ export default function LeaguesSection() {
                 className="h-1"
                 style={{ background: league.color }}
               />
-              <div className="p-5 text-center" onClick={() => document.querySelector("#tips")?.scrollIntoView({ behavior: "smooth" })}>
+              <div className="p-6 text-center" onClick={() => document.querySelector("#tips")?.scrollIntoView({ behavior: "smooth" })}>
                 <div
-                  className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center text-sm font-black text-white group-hover:scale-110 transition-transform duration-300"
+                  className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center text-sm font-black text-white group-hover:scale-110 transition-transform duration-300"
                   style={{ background: league.color }}
                 >
                   {league.abbr}
                 </div>
-                <div className="text-sm font-bold text-[var(--color-text-white)] group-hover:text-[var(--color-accent-secondary)] transition-colors">
+                <div className="text-base font-bold text-[var(--color-text-white)] group-hover:text-[var(--color-accent-secondary)] transition-colors">
                   {league.name}
                 </div>
-                <div className="text-[11px] text-[var(--color-text-muted)] mb-3">
+                <div className="text-xs text-[var(--color-text-muted)] mt-1 mb-4">
                   {league.country}
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--color-bg-elevated)] text-[10px] font-semibold text-[var(--color-text-secondary)]">

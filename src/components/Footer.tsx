@@ -3,8 +3,8 @@
 export default function Footer() {
   return (
     <footer className="border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-primary)]">
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
@@ -123,7 +123,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/972534808349" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/link">
+                <a href="https://wa.me/+972534808349" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/link">
                   <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)] group-hover/link:border-[#25D366]/30 group-hover/link:text-[#25D366] transition-all">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />

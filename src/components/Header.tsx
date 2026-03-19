@@ -99,7 +99,7 @@ export default function Header({
             <span>ג&apos;וקוביץ&apos; 6-4 3-2 סינר (סט 2)</span>
             <span>באיירן 3-1 דורטמונד (FT)</span>
             <span>ווריורס 112-108 נאגטס (FT)</span>
-            <span>PSG 2-0 מרסיי (61&apos;)</span>
+            <span>ליון 2-0 מרסיי (61&apos;)</span>
             <span>ארסנל 1-1 צ&apos;לסי (55&apos;)</span>
             <span>ריינג&apos;רס 3-2 פנגווינס (P3)</span>
           </div>
