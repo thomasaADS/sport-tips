@@ -26,7 +26,7 @@ function ConfidenceRing({ value }: { value: number }) {
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (value / 100) * circumference;
   const color =
-    value >= 80 ? "#10b981" : value >= 65 ? "#f59e0b" : "#3b82f6";
+    value >= 80 ? "#10b981" : value >= 65 ? "#60a5fa" : "#3b82f6";
 
   return (
     <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
@@ -46,8 +46,8 @@ function ConfidenceRing({ value }: { value: number }) {
 function ResultBadge({ result }: { result?: "win" | "loss" | "pending" }) {
   if (result === "win") {
     return (
-      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 text-[10px] font-bold text-amber-400 border border-amber-500/20">
-        <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> WIN
+      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> WIN
       </span>
     );
   }
@@ -59,8 +59,8 @@ function ResultBadge({ result }: { result?: "win" | "loss" | "pending" }) {
     );
   }
   return (
-    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 text-[10px] font-bold text-amber-400 border border-amber-500/20">
-      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" /> LIVE
+    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-500/10 text-[10px] font-bold text-blue-400 border border-blue-500/20">
+      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" /> LIVE
     </span>
   );
 }
@@ -70,14 +70,14 @@ export default function TipCard({ tip }: { tip: Tip }) {
 
   const confGradient =
     tip.confidence >= 80
-      ? "from-amber-500 to-amber-400"
+      ? "from-emerald-500 to-emerald-400"
       : tip.confidence >= 65
-        ? "from-amber-500 to-amber-400"
-        : "from-blue-500 to-blue-400";
+        ? "from-blue-500 to-blue-400"
+        : "from-sky-500 to-sky-400";
 
   return (
     <div
-      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-400/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(240,176,48,0.06)] overflow-hidden cursor-pointer"
+      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(255,255,255,0.04)] overflow-hidden cursor-pointer"
       onClick={() => setExpanded(!expanded)}
     >
       {/* Hot banner */}
@@ -171,7 +171,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
             <div className="grid grid-cols-3 gap-2">
               <div className="p-2.5 rounded-lg bg-[var(--color-bg-secondary)] text-center">
                 <div className="text-[9px] text-[var(--color-text-dim)] mb-1">ביטחון</div>
-                <div className="text-sm font-black" style={{ color: tip.confidence >= 80 ? "#10b981" : tip.confidence >= 65 ? "#f59e0b" : "#3b82f6" }}>
+                <div className="text-sm font-black" style={{ color: tip.confidence >= 80 ? "#10b981" : tip.confidence >= 65 ? "#60a5fa" : "#3b82f6" }}>
                   {tip.confidence}%
                 </div>
               </div>

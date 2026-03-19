@@ -174,7 +174,7 @@ export default function NewsSection() {
         <div className="grid lg:grid-cols-5 gap-6 mb-6">
           {/* Featured */}
           <div
-            className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all"
+            className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all"
             onClick={() => setSelectedArticle(main)}
           >
             <div className="relative h-64 md:h-80 overflow-hidden">
@@ -209,7 +209,7 @@ export default function NewsSection() {
             {side.map((article) => (
               <div
                 key={article.id}
-                className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all flex-1"
+                className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all flex-1"
                 onClick={() => setSelectedArticle(article)}
               >
                 <div className="relative w-28 md:w-36 flex-shrink-0 overflow-hidden">
@@ -241,7 +241,7 @@ export default function NewsSection() {
           {bottom.map((article) => (
             <div
               key={article.id}
-              className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/20 transition-all"
+              className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all"
               onClick={() => setSelectedArticle(article)}
             >
               <div className="relative w-36 md:w-44 flex-shrink-0 overflow-hidden">

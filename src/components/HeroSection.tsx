@@ -50,7 +50,7 @@ export default function HeroSection() {
           {/* Glowing orbs */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-accent-primary)]/5 blur-[150px]" />
           <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-[var(--color-accent-blue)]/5 blur-[120px]" />
-          <div className="absolute top-[10%] left-[50%] w-[300px] h-[300px] rounded-full bg-[#f59e0b]/4 blur-[100px]" />
+          <div className="absolute top-[10%] left-[50%] w-[300px] h-[300px] rounded-full bg-[#60a5fa]/4 blur-[100px]" />
 
           {/* === LARGE TROPHY SVG - center background === */}
           <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] opacity-[0.03]" viewBox="0 0 200 200" fill="none">
@@ -112,7 +112,7 @@ export default function HeroSection() {
           {/* Decorative rings */}
           <div className="absolute top-[8%] left-[35%] w-32 h-32 rounded-full border border-[var(--color-accent-primary)]/[0.04] animate-pulse" style={{ animationDelay: "0.5s" }} />
           <div className="absolute bottom-[15%] right-[25%] w-48 h-48 rounded-full border border-[var(--color-accent-blue)]/[0.04]" />
-          <div className="absolute top-[45%] right-[20%] w-20 h-20 rounded-full border border-[#f59e0b]/[0.05] animate-pulse" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-[45%] right-[20%] w-20 h-20 rounded-full border border-[#60a5fa]/[0.05] animate-pulse" style={{ animationDelay: "1.5s" }} />
 
           {/* Diagonal accent lines */}
           <div className="absolute top-0 right-[20%] w-px h-[200px] bg-gradient-to-b from-transparent via-[var(--color-accent-primary)]/[0.06] to-transparent rotate-[25deg]" />
@@ -122,7 +122,7 @@ export default function HeroSection() {
           <svg className="absolute top-[22%] right-[30%] w-4 h-4 opacity-[0.08] animate-pulse" viewBox="0 0 24 24" fill="white" style={{ animationDelay: "2s" }}>
             <path d="M12 2L14.09 8.26L20.18 8.26L15.05 12.14L17.18 18.38L12 14.74L6.82 18.38L8.95 12.14L3.82 8.26L9.91 8.26Z" />
           </svg>
-          <svg className="absolute bottom-[30%] left-[22%] w-3 h-3 opacity-[0.06] animate-pulse" viewBox="0 0 24 24" fill="#f59e0b" style={{ animationDelay: "0.7s" }}>
+          <svg className="absolute bottom-[30%] left-[22%] w-3 h-3 opacity-[0.06] animate-pulse" viewBox="0 0 24 24" fill="#60a5fa" style={{ animationDelay: "0.7s" }}>
             <path d="M12 2L14.09 8.26L20.18 8.26L15.05 12.14L17.18 18.38L12 14.74L6.82 18.38L8.95 12.14L3.82 8.26L9.91 8.26Z" />
           </svg>
           <svg className="absolute top-[65%] right-[35%] w-2.5 h-2.5 opacity-[0.07]" viewBox="0 0 24 24" fill="white">
@@ -291,10 +291,10 @@ export default function HeroSection() {
             <div className="flex items-center gap-3">
               <div className="flex gap-0.5">
                 {[true,true,true,true,true,false,true,true,false,true].map((win, i) => (
-                  <span key={i} className={`w-2 h-2 rounded-full ${win ? "bg-amber-400" : "bg-red-400"}`} />
+                  <span key={i} className={`w-2 h-2 rounded-full ${win ? "bg-emerald-400" : "bg-red-400"}`} />
                 ))}
               </div>
-              <span className="text-xs text-[var(--color-text-muted)]">רצף: <span className="text-amber-400 font-bold">8/10</span></span>
+              <span className="text-xs text-[var(--color-text-muted)]">רצף: <span className="text-emerald-400 font-bold">8/10</span></span>
             </div>
             <span className="w-px h-5 bg-[var(--color-border-subtle)] hidden md:block" />
             <div className="flex items-center gap-2">
