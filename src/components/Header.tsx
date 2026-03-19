@@ -13,6 +13,7 @@ const sports = [
 ];
 
 const navLinks = [
+  { name: "LIVE", href: "#live" },
   { name: "המלצות", href: "#tips" },
   { name: "חדשות", href: "#news" },
   { name: "סטטיסטיקות", href: "#stats" },
@@ -21,28 +22,28 @@ const navLinks = [
 
 function Logo() {
   return (
-    <div className="flex items-center gap-3">
+    <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3 cursor-pointer">
       <div className="relative">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg shadow-[var(--color-accent-primary)]/20">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z"
-              fill="#0a0b14"
-              stroke="#0a0b14"
+              fill="white"
+              stroke="white"
               strokeWidth="0.5"
             />
           </svg>
         </div>
       </div>
       <div className="flex flex-col">
-        <span className="text-xl font-black tracking-tight text-gradient-gold leading-none">
+        <span className="text-lg font-black tracking-tight text-gradient-gold leading-none">
           WinnerTips
         </span>
-        <span className="text-[10px] font-medium text-[var(--color-text-muted)] tracking-widest uppercase">
-          Pro Sports Analytics
+        <span className="text-[9px] font-medium text-[var(--color-text-muted)] tracking-widest uppercase">
+          AI Sports Analytics
         </span>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -59,12 +60,23 @@ export default function Header({
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      setShowFilters(window.scrollY > 400);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (href: string) => {
+    const id = href.replace("#", "");
+    onSectionChange(id);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
 
   return (
     <header
@@ -87,14 +99,16 @@ export default function Header({
             <span>ג&apos;וקוביץ&apos; 6-4 3-2 סינר (סט 2)</span>
             <span>באיירן 3-1 דורטמונד (FT)</span>
             <span>ווריורס 112-108 נאגטס (FT)</span>
-            <span>PSG 0-0 מרסיי (32&apos;)</span>
+            <span>PSG 2-0 מרסיי (61&apos;)</span>
+            <span>ארסנל 1-1 צ&apos;לסי (55&apos;)</span>
+            <span>ריינג&apos;רס 3-2 פנגווינס (P3)</span>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Nav */}
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           <Logo />
 
           {/* Desktop Nav */}
@@ -105,8 +119,7 @@ export default function Header({
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  onSectionChange(link.href.replace("#", ""));
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  handleNavClick(link.href);
                 }}
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeSection === link.href.replace("#", "")
@@ -114,7 +127,16 @@ export default function Header({
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)]"
                 }`}
               >
-                {link.name}
+                {link.name === "LIVE" && (
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+                    </span>
+                    {link.name}
+                  </span>
+                )}
+                {link.name !== "LIVE" && link.name}
               </a>
             ))}
           </nav>
@@ -122,12 +144,12 @@ export default function Header({
           {/* CTA + Mobile Menu */}
           <div className="flex items-center gap-3">
             <a
-              href="https://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm"
+              href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 btn-primary text-sm"
             >
-              <span>הצטרפו לקבוצת VIP</span>
+              <span>קבוצת VIP</span>
             </a>
 
             <button
@@ -160,35 +182,51 @@ export default function Header({
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
                 className="px-4 py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)] transition-all"
               >
                 {link.name}
               </a>
             ))}
+            <a
+              href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-3 rounded-xl text-sm font-bold text-[#25D366] hover:bg-[#25D366]/10 transition-all"
+            >
+              קבוצת VIP בווצאפ
+            </a>
           </nav>
         )}
 
-        {/* Sport Filter Pills */}
-        <div className="flex gap-2 pb-3 overflow-x-auto no-scrollbar">
-          {sports.map((sport) => (
-            <button
-              key={sport.id}
-              onClick={() => onFilterChange(sport.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
-                activeFilter === sport.id
-                  ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-[var(--color-bg-deep)] shadow-md"
-                  : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
-              }`}
-            >
-              <span
-                className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ background: sport.color }}
-              />
-              <span>{sport.name}</span>
-            </button>
-          ))}
-        </div>
+        {/* Sport Filter Pills - only show after scrolling */}
+        {showFilters && (
+          <div className="flex gap-2 pb-3 overflow-x-auto no-scrollbar animate-fade-in-down">
+            {sports.map((sport) => (
+              <button
+                key={sport.id}
+                onClick={() => {
+                  onFilterChange(sport.id);
+                  document.querySelector("#tips")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
+                  activeFilter === sport.id
+                    ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-[var(--color-bg-deep)] shadow-md"
+                    : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
+                }`}
+              >
+                <span
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: sport.color }}
+                />
+                <span>{sport.name}</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </header>
   );

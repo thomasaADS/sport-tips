@@ -3,7 +3,7 @@
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://chat.whatsapp.com/IhCzHHioAPDHT7HcywZmUm"
+      href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 left-6 z-50 group"

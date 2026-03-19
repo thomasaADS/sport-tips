@@ -21,7 +21,7 @@ const leagues = [
 
 export default function LeaguesSection() {
   return (
-    <section id="leagues" className="py-20 px-4">
+    <section id="leagues" className="py-20 px-4" aria-label="ליגות ספורט מכוסות">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-12">
@@ -48,9 +48,9 @@ export default function LeaguesSection() {
                 className="h-1"
                 style={{ background: league.color }}
               />
-              <div className="p-5 text-center">
+              <div className="p-5 text-center" onClick={() => document.querySelector("#tips")?.scrollIntoView({ behavior: "smooth" })}>
                 <div
-                  className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center text-sm font-black text-white group-hover:scale-105 transition-transform duration-300"
+                  className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center text-sm font-black text-white group-hover:scale-110 transition-transform duration-300"
                   style={{ background: league.color }}
                 >
                   {league.abbr}
@@ -64,6 +64,9 @@ export default function LeaguesSection() {
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--color-bg-elevated)] text-[10px] font-semibold text-[var(--color-text-secondary)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)]" />
                   {league.matches} משחקים
+                </div>
+                <div className="text-[9px] text-[var(--color-accent-primary)] font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  צפו בהמלצות
                 </div>
               </div>
             </div>

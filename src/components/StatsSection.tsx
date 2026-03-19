@@ -26,7 +26,7 @@ export default function StatsSection() {
   const winRate = Math.round((wins / total) * 100);
 
   return (
-    <section id="stats" className="py-20 px-4">
+    <section id="stats" className="py-20 px-4" aria-label="סטטיסטיקות ותוצאות המלצות">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-12">

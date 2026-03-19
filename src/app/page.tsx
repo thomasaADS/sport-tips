@@ -8,6 +8,7 @@ import NewsSection from "@/components/NewsSection";
 import StatsSection from "@/components/StatsSection";
 import LeaguesSection from "@/components/LeaguesSection";
 import Footer from "@/components/Footer";
+import LiveMatches from "@/components/LiveMatches";
 import ChatBot from "@/components/ChatBot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -155,30 +156,57 @@ export default function Home() {
 
       <HeroSection />
 
-      {/* === TIPS SECTION === */}
-      <section id="tips" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Section header */}
-          <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-3">
-              <div className="w-1 h-8 rounded-full bg-gradient-to-b from-[var(--color-danger)] to-[var(--color-accent-primary)]" />
-              <div>
-                <h2 className="text-2xl md:text-3xl font-black text-[var(--color-text-white)]">
-                  המלצות היום
-                </h2>
-                <p className="text-sm text-[var(--color-text-muted)]">
-                  ניתוחים מקצועיים / עדכון בזמן אמת
-                </p>
+      <main>
+        <LiveMatches />
+
+        {/* === TIPS SECTION === */}
+        <section id="tips" className="py-20 px-4" aria-label="המלצות ספורט יומיות">
+          <div className="max-w-7xl mx-auto">
+            {/* Section header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-1 h-8 rounded-full bg-gradient-to-b from-[var(--color-danger)] to-[var(--color-accent-primary)]" />
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-black text-[var(--color-text-white)]">
+                    המלצות היום
+                  </h2>
+                  <p className="text-sm text-[var(--color-text-muted)]">
+                    ניתוחים מקצועיים / לחצו על כרטיס לפרטים
+                  </p>
+                </div>
               </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)]">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
+              <span className="text-sm font-semibold text-[var(--color-text-secondary)]">
+                {sortedTips.length} המלצות
+              </span>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)]">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
-                <span className="text-sm font-semibold text-[var(--color-text-secondary)]">
-                  {sortedTips.length} המלצות
-                </span>
-              </div>
-            </div>
+          </div>
+
+          {/* Filter pills in section */}
+          <div className="flex gap-2 mb-8 overflow-x-auto no-scrollbar pb-1">
+            {[
+              { name: "הכל", id: "all", color: "#f59e0b" },
+              { name: "כדורגל", id: "football", color: "#10b981" },
+              { name: "כדורסל", id: "basketball", color: "#3b82f6" },
+              { name: "טניס", id: "tennis", color: "#8b5cf6" },
+              { name: "הוקי", id: "hockey", color: "#06b6d4" },
+              { name: "MMA", id: "mma", color: "#ef4444" },
+              { name: "בייסבול", id: "baseball", color: "#f97316" },
+            ].map((sport) => (
+              <button
+                key={sport.id}
+                onClick={() => setActiveFilter(sport.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
+                  activeFilter === sport.id
+                    ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-[var(--color-bg-deep)] shadow-md"
+                    : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: sport.color }} />
+                <span>{sport.name}</span>
+              </button>
+            ))}
           </div>
 
           {/* Tips Grid */}
@@ -203,12 +231,14 @@ export default function Home() {
           )}
         </div>
 
-        <div className="section-divider mt-20" />
-      </section>
+          <div className="section-divider mt-20" />
+        </section>
 
-      <NewsSection />
-      <StatsSection />
-      <LeaguesSection />
+        <NewsSection />
+        <StatsSection />
+        <LeaguesSection />
+      </main>
+
       <Footer />
       <ChatBot />
       <WhatsAppButton />

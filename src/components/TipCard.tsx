@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 export interface Tip {
   id: number;
   sport: string;
@@ -64,6 +66,8 @@ function ResultBadge({ result }: { result?: "win" | "loss" | "pending" }) {
 }
 
 export default function TipCard({ tip }: { tip: Tip }) {
+  const [expanded, setExpanded] = useState(false);
+
   const confGradient =
     tip.confidence >= 80
       ? "from-emerald-500 to-emerald-400"
@@ -72,10 +76,13 @@ export default function TipCard({ tip }: { tip: Tip }) {
         : "from-blue-500 to-blue-400";
 
   return (
-    <div className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-amber-500/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(245,158,11,0.08)] overflow-hidden">
+    <div
+      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-emerald-400/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,212,170,0.06)] overflow-hidden cursor-pointer"
+      onClick={() => setExpanded(!expanded)}
+    >
       {/* Hot banner */}
       {tip.isHot && (
-        <div className="bg-gradient-to-l from-amber-500 via-amber-500 to-orange-500 px-4 py-1.5 flex items-center justify-between">
+        <div className="bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] px-4 py-1.5 flex items-center justify-between">
           <span className="text-[11px] font-extrabold text-black tracking-wide">TOP PICK</span>
           <span className="text-[10px] font-black text-black/70 tracking-widest">HOT</span>
         </div>
@@ -152,10 +159,67 @@ export default function TipCard({ tip }: { tip: Tip }) {
           />
         </div>
 
-        {/* Analysis */}
-        <p className="text-[11px] text-[var(--color-text-muted)] leading-relaxed">
+        {/* Analysis - short preview or full */}
+        <p className={`text-[11px] text-[var(--color-text-muted)] leading-relaxed ${expanded ? "" : "line-clamp-2"}`}>
           {tip.analysis}
         </p>
+
+        {/* Expanded content */}
+        {expanded && (
+          <div className="mt-4 pt-4 border-t border-[var(--color-border-subtle)] animate-fade-in-up space-y-3">
+            {/* Quick stats */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2.5 rounded-lg bg-[var(--color-bg-secondary)] text-center">
+                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">ביטחון</div>
+                <div className="text-sm font-black" style={{ color: tip.confidence >= 80 ? "#10b981" : tip.confidence >= 65 ? "#f59e0b" : "#3b82f6" }}>
+                  {tip.confidence}%
+                </div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[var(--color-bg-secondary)] text-center">
+                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">מקדם</div>
+                <div className="text-sm font-black text-[var(--color-accent-primary)]">{tip.odds}</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[var(--color-bg-secondary)] text-center">
+                <div className="text-[9px] text-[var(--color-text-dim)] mb-1">ענף</div>
+                <div className="text-sm font-bold text-white">{tip.sportLabel}</div>
+              </div>
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex gap-2">
+              <a
+                href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold text-white bg-[#25D366]/90 hover:bg-[#25D366] transition-all"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                </svg>
+                שתפו בווצאפ
+              </a>
+              <button
+                onClick={(e) => { e.stopPropagation(); setExpanded(false); }}
+                className="px-4 py-2.5 rounded-xl text-xs font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] hover:text-white transition-all border border-[var(--color-border-subtle)]"
+              >
+                סגור
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Expand hint */}
+        {!expanded && (
+          <div className="flex items-center justify-center mt-3 pt-3 border-t border-[var(--color-border-subtle)]">
+            <span className="text-[10px] text-[var(--color-text-dim)] flex items-center gap-1">
+              לחצו לפרטים נוספים
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

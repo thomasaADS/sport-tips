@@ -8,9 +8,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg shadow-[var(--color-accent-primary)]/15">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z" fill="#0a0b14" />
+                  <path d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z" fill="white" />
                 </svg>
               </div>
               <span className="text-lg font-black text-gradient-gold">WinnerTips</span>
@@ -21,26 +21,29 @@ export default function Footer() {
             {/* Social links */}
             <div className="flex gap-3">
               {[
-                { label: "WhatsApp", icon: (
+                { label: "WhatsApp", href: "https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d", icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                 )},
-                { label: "Instagram", icon: (
+                { label: "Instagram", href: "https://instagram.com/winnertips_il", icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
                 )},
-                { label: "Twitter", icon: (
+                { label: "Twitter", href: "https://x.com/winnertips_il", icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 )},
-                { label: "Facebook", icon: (
+                { label: "Facebook", href: "https://facebook.com/winnertips.il", icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 )},
               ].map((social) => (
-                <button
+                <a
                   key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)] hover:border-[var(--color-border-accent)] hover:text-[var(--color-accent-secondary)] hover:bg-[var(--color-bg-elevated)] transition-all"
                   aria-label={social.label}
                 >
                   {social.icon}
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -53,15 +56,21 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
+                { name: "משחקים חיים", href: "#live" },
                 { name: "המלצות היום", href: "#tips" },
                 { name: "חדשות ספורט", href: "#news" },
                 { name: "סטטיסטיקות", href: "#stats" },
                 { name: "ליגות", href: "#leagues" },
-                { name: "תנאי שימוש", href: "#" },
-                { name: "מדיניות פרטיות", href: "#" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent-secondary)] transition-colors">
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent-secondary)] transition-colors cursor-pointer"
+                  >
                     {link.name}
                   </a>
                 </li>
@@ -99,41 +108,47 @@ export default function Footer() {
               צרו קשר
             </h4>
             <ul className="space-y-5">
-              <li className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)]">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[11px] text-[var(--color-text-muted)]">אימייל</div>
-                  <div className="text-sm text-[var(--color-text-secondary)]">info@winnertips.co.il</div>
-                </div>
+              <li>
+                <a href="mailto:info@winnertips.co.il" className="flex items-center gap-3 group/link">
+                  <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)] group-hover/link:border-[var(--color-border-accent)] group-hover/link:text-[var(--color-accent-primary)] transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-[var(--color-text-muted)]">אימייל</div>
+                    <div className="text-sm text-[var(--color-text-secondary)] group-hover/link:text-[var(--color-accent-secondary)] transition-colors">info@winnertips.co.il</div>
+                  </div>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)]">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[11px] text-[var(--color-text-muted)]">ווצאפ</div>
-                  <div className="text-sm text-[var(--color-text-secondary)]">052-359-3540</div>
-                </div>
+              <li>
+                <a href="https://wa.me/972534808349" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/link">
+                  <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)] group-hover/link:border-[#25D366]/30 group-hover/link:text-[#25D366] transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-[var(--color-text-muted)]">ווצאפ - מיכאל</div>
+                    <div className="text-sm text-[var(--color-text-secondary)] group-hover/link:text-[#25D366] transition-colors">053-480-8349</div>
+                  </div>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)]">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <circle cx="12" cy="12" r="5"/>
-                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[11px] text-[var(--color-text-muted)]">אינסטגרם</div>
-                  <div className="text-sm text-[var(--color-text-secondary)]">@winnertips_il</div>
-                </div>
+              <li>
+                <a href="https://instagram.com/winnertips_il" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/link">
+                  <div className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-text-muted)] group-hover/link:border-[var(--color-border-accent)] group-hover/link:text-[var(--color-accent-purple)] transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5"/>
+                      <circle cx="12" cy="12" r="5"/>
+                      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-[var(--color-text-muted)]">אינסטגרם</div>
+                    <div className="text-sm text-[var(--color-text-secondary)] group-hover/link:text-[var(--color-accent-purple)] transition-colors">@winnertips_il</div>
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
