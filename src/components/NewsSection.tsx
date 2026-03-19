@@ -108,7 +108,7 @@ function ArticleModal({ article, onClose }: { article: typeof newsArticles[0]; o
             <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
             {article.category}
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white leading-tight mb-4">{article.title}</h2>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--color-text-white)] leading-tight mb-4">{article.title}</h2>
           <div className="flex items-center gap-4 text-[11px] text-[var(--color-text-muted)] mb-6">
             <span>{article.time}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--color-text-dim)]" />
@@ -131,7 +131,7 @@ function ArticleModal({ article, onClose }: { article: typeof newsArticles[0]; o
             </a>
             <button
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl text-sm font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] hover:text-white transition-all border border-[var(--color-border-subtle)]"
+              className="px-5 py-2.5 rounded-xl text-sm font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] hover:text-[var(--color-text-white)] transition-all border border-[var(--color-border-subtle)]"
             >
               סגור
             </button>
@@ -157,7 +157,7 @@ export default function NewsSection() {
           <div className="flex items-center gap-3">
             <div className="w-1 h-8 rounded-full bg-gradient-to-b from-red-500 to-amber-500" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-black text-white">מגזין ספורט</h2>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-text-white)]">מגזין ספורט</h2>
               <p className="text-sm text-[var(--color-text-muted)]">חדשות / ניתוחים / לחצו לקריאה</p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function NewsSection() {
         <div className="grid lg:grid-cols-5 gap-6 mb-6">
           {/* Featured */}
           <div
-            className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all"
+            className="lg:col-span-3 group cursor-pointer rounded-2xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all"
             onClick={() => setSelectedArticle(main)}
           >
             <div className="relative h-64 md:h-80 overflow-hidden">
@@ -193,10 +193,10 @@ export default function NewsSection() {
                 <h3 className="text-xl md:text-2xl font-black text-white leading-tight mb-3 group-hover:text-[var(--color-accent-secondary)] transition-colors">
                   {main.title}
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">{main.excerpt}</p>
-                <div className="flex items-center gap-4 text-[11px] text-gray-400">
+                <p className="text-sm text-white/80 leading-relaxed mb-3 line-clamp-2">{main.excerpt}</p>
+                <div className="flex items-center gap-4 text-[11px] text-white/60">
                   <span>{main.time}</span>
-                  <span className="w-1 h-1 rounded-full bg-gray-500" />
+                  <span className="w-1 h-1 rounded-full bg-white/40" />
                   <span>{main.views} צפיות</span>
                   <span className="mr-auto text-[var(--color-accent-primary)] font-semibold">קראו עוד</span>
                 </div>
@@ -209,7 +209,7 @@ export default function NewsSection() {
             {side.map((article) => (
               <div
                 key={article.id}
-                className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all flex-1"
+                className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all flex-1"
                 onClick={() => setSelectedArticle(article)}
               >
                 <div className="relative w-28 md:w-36 flex-shrink-0 overflow-hidden">
@@ -221,7 +221,7 @@ export default function NewsSection() {
                       <span className="w-1 h-1 rounded-full bg-white/60" />
                       {article.category}
                     </span>
-                    <h4 className="text-[13px] font-bold text-white leading-snug group-hover:text-[var(--color-accent-secondary)] transition-colors line-clamp-2">
+                    <h4 className="text-[13px] font-bold text-[var(--color-text-white)] leading-snug group-hover:text-[var(--color-accent-secondary)] transition-colors line-clamp-2">
                       {article.title}
                     </h4>
                   </div>
@@ -241,7 +241,7 @@ export default function NewsSection() {
           {bottom.map((article) => (
             <div
               key={article.id}
-              className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/10 transition-all"
+              className="group cursor-pointer flex rounded-xl overflow-hidden bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all"
               onClick={() => setSelectedArticle(article)}
             >
               <div className="relative w-36 md:w-44 flex-shrink-0 overflow-hidden">
@@ -253,7 +253,7 @@ export default function NewsSection() {
                     <span className="w-1 h-1 rounded-full bg-white/60" />
                     {article.category}
                   </span>
-                  <h4 className="text-sm font-bold text-white leading-snug group-hover:text-[var(--color-accent-secondary)] transition-colors line-clamp-2 mb-1.5">
+                  <h4 className="text-sm font-bold text-[var(--color-text-white)] leading-snug group-hover:text-[var(--color-accent-secondary)] transition-colors line-clamp-2 mb-1.5">
                     {article.title}
                   </h4>
                   <p className="text-[11px] text-[var(--color-text-muted)] line-clamp-2">{article.excerpt}</p>

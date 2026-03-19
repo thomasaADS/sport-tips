@@ -214,7 +214,7 @@ export default function Header({
                 }}
                 className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
                   activeFilter === sport.id
-                    ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-[var(--color-bg-deep)] shadow-md"
+                    ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-white shadow-md"
                     : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
                 }`}
               >

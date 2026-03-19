@@ -132,12 +132,12 @@ export default function ChatBot() {
       {/* Toggle Button with Yotam avatar */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 left-6 z-50 w-14 h-14 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300 border-2 border-white/20"
+        className="fixed bottom-24 left-6 z-50 w-14 h-14 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300 border-2 border-[#1a56db]/30"
         aria-label="צ'אט עם Yotam"
       >
         {isOpen ? (
-          <div className="w-full h-full bg-gradient-to-br from-zinc-200 to-zinc-400 flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a0b14" strokeWidth="3">
+          <div className="w-full h-full bg-gradient-to-br from-[#1a56db] to-[#3b82f6] flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -149,25 +149,25 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-44 left-6 z-50 w-[370px] max-w-[calc(100vw-48px)] rounded-2xl overflow-hidden shadow-2xl animate-scale-in border border-white/15">
+        <div className="fixed bottom-44 left-6 z-50 w-[370px] max-w-[calc(100vw-48px)] rounded-2xl overflow-hidden shadow-2xl animate-scale-in border border-[#1a56db]/20">
           {/* Header */}
-          <div className="bg-gradient-to-l from-zinc-200 to-zinc-300 p-4">
+          <div className="bg-gradient-to-r from-[#1a56db] to-[#3b82f6] p-4">
             <div className="flex items-center gap-3">
-              <div className="rounded-xl overflow-hidden border-2 border-black/10 flex-shrink-0">
+              <div className="rounded-xl overflow-hidden border-2 border-white/20 flex-shrink-0">
                 <YotamAvatar size={44} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-black text-[var(--color-bg-deep)] text-sm">Yotam</span>
-                  <span className="px-1.5 py-0.5 rounded text-[8px] font-bold bg-black/15 text-black/70">AI AGENT</span>
+                  <span className="font-black text-white text-sm">Yotam</span>
+                  <span className="px-1.5 py-0.5 rounded text-[8px] font-bold bg-white/20 text-white/80">AI AGENT</span>
                 </div>
-                <div className="text-[11px] text-black/60 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
+                <div className="text-[11px] text-white/70 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
                   סוכן ספורט חכם - מחובר
                 </div>
               </div>
-              <button onClick={() => setIsOpen(false)} className="w-8 h-8 rounded-lg bg-black/10 flex items-center justify-center hover:bg-black/20 transition-colors">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0b14" strokeWidth="2.5">
+              <button onClick={() => setIsOpen(false)} className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
@@ -186,7 +186,7 @@ export default function ChatBot() {
                 )}
                 <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-line ${
                   msg.role === "user"
-                    ? "bg-gradient-to-l from-zinc-200 to-zinc-300 text-[var(--color-bg-deep)] font-medium rounded-br-md"
+                    ? "bg-gradient-to-l from-[#1a56db] to-[#3b82f6] text-white font-medium rounded-br-md"
                     : "bg-[var(--color-bg-card)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] rounded-bl-md"
                 }`}>
                   {msg.content}
@@ -199,7 +199,7 @@ export default function ChatBot() {
                 <div className="bg-[var(--color-bg-card)] rounded-2xl rounded-bl-md px-4 py-3 border border-[var(--color-border-subtle)]">
                   <div className="flex gap-1.5">
                     {[0, 150, 300].map((d) => (
-                      <span key={d} className="w-1.5 h-1.5 rounded-full bg-zinc-200 animate-bounce" style={{ animationDelay: `${d}ms` }} />
+                      <span key={d} className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] animate-bounce" style={{ animationDelay: `${d}ms` }} />
                     ))}
                   </div>
                 </div>
@@ -212,7 +212,7 @@ export default function ChatBot() {
           <div className="px-3 py-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)] overflow-x-auto no-scrollbar">
             <div className="flex gap-2">
               {quickReplies.map((reply, i) => (
-                <button key={i} onClick={() => sendMessage(reply)} className="px-3 py-1.5 rounded-xl text-[11px] font-medium whitespace-nowrap bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-white hover:text-black transition-all border border-[var(--color-border-subtle)] hover:border-white">
+                <button key={i} onClick={() => sendMessage(reply)} className="px-3 py-1.5 rounded-xl text-[11px] font-medium whitespace-nowrap bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[#1a56db] hover:text-white transition-all border border-[var(--color-border-subtle)] hover:border-[#1a56db]">
                   {reply}
                 </button>
               ))}
@@ -225,9 +225,9 @@ export default function ChatBot() {
               <input
                 type="text" value={input} onChange={(e) => setInput(e.target.value)}
                 placeholder="שאלו את Yotam..."
-                className="flex-1 bg-[var(--color-bg-input)] border border-[var(--color-border-subtle)] rounded-xl px-4 py-2.5 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-white/30 transition-colors"
+                className="flex-1 bg-[var(--color-bg-input)] border border-[var(--color-border-subtle)] rounded-xl px-4 py-2.5 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[#1a56db]/40 transition-colors"
               />
-              <button type="submit" className="w-10 h-10 rounded-xl bg-gradient-to-br from-zinc-200 to-zinc-400 text-[var(--color-bg-deep)] flex items-center justify-center hover:scale-105 transition-transform">
+              <button type="submit" className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a56db] to-[#3b82f6] text-white flex items-center justify-center hover:scale-105 transition-transform">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="22" y1="2" x2="11" y2="13" />
                   <polygon points="22 2 15 22 11 13 2 9 22 2" />

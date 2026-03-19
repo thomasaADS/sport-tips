@@ -31,7 +31,7 @@ function ConfidenceRing({ value }: { value: number }) {
   return (
     <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
       <svg width="40" height="40" className="progress-ring">
-        <circle cx="20" cy="20" r={radius} stroke="rgba(255,255,255,0.06)" strokeWidth="2.5" fill="none" />
+        <circle cx="20" cy="20" r={radius} stroke="rgba(0,0,0,0.06)" strokeWidth="2.5" fill="none" />
         <circle
           cx="20" cy="20" r={radius} stroke={color} strokeWidth="2.5" fill="none"
           strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={offset}
@@ -77,14 +77,14 @@ export default function TipCard({ tip }: { tip: Tip }) {
 
   return (
     <div
-      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(255,255,255,0.04)] overflow-hidden cursor-pointer"
+      className="group rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] overflow-hidden cursor-pointer"
       onClick={() => setExpanded(!expanded)}
     >
       {/* Hot banner */}
       {tip.isHot && (
         <div className="bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] px-4 py-1.5 flex items-center justify-between">
-          <span className="text-[11px] font-extrabold text-black tracking-wide">TOP PICK</span>
-          <span className="text-[10px] font-black text-black/70 tracking-widest">HOT</span>
+          <span className="text-[11px] font-extrabold text-white tracking-wide">TOP PICK</span>
+          <span className="text-[10px] font-black text-white/70 tracking-widest">HOT</span>
         </div>
       )}
 
@@ -97,7 +97,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
               style={{ background: tip.sportColor }}
             />
             <div>
-              <div className="flex items-center gap-2 text-[13px] font-bold text-white">
+              <div className="flex items-center gap-2 text-[13px] font-bold text-[var(--color-text-white)]">
                 {tip.league}
                 <span className="text-[10px] font-medium text-[var(--color-text-muted)]">
                   {tip.leagueRegion}
@@ -118,10 +118,10 @@ export default function TipCard({ tip }: { tip: Tip }) {
         {/* Teams */}
         <div className="flex items-center gap-3 mb-5 py-4 px-4 rounded-xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border-subtle)]">
           <div className="flex-1 text-center">
-            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-base font-black text-[var(--color-accent-primary)] mb-2">
+            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-[var(--color-accent-primary)]/10 to-[var(--color-accent-primary)]/5 border border-[var(--color-border-subtle)] flex items-center justify-center text-base font-black text-[var(--color-accent-primary)] mb-2">
               {tip.homeTeam.charAt(0)}
             </div>
-            <div className="text-[12px] font-bold text-white leading-tight">{tip.homeTeam}</div>
+            <div className="text-[12px] font-bold text-[var(--color-text-white)] leading-tight">{tip.homeTeam}</div>
             <div className="text-[9px] text-[var(--color-text-dim)] mt-0.5">בית</div>
           </div>
 
@@ -130,10 +130,10 @@ export default function TipCard({ tip }: { tip: Tip }) {
           </div>
 
           <div className="flex-1 text-center">
-            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-base font-black text-blue-400 mb-2">
+            <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-[var(--color-accent-primary)]/10 to-[var(--color-accent-primary)]/5 border border-[var(--color-border-subtle)] flex items-center justify-center text-base font-black text-blue-400 mb-2">
               {tip.awayTeam.charAt(0)}
             </div>
-            <div className="text-[12px] font-bold text-white leading-tight">{tip.awayTeam}</div>
+            <div className="text-[12px] font-bold text-[var(--color-text-white)] leading-tight">{tip.awayTeam}</div>
             <div className="text-[9px] text-[var(--color-text-dim)] mt-0.5">חוץ</div>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
         <div className="flex items-center gap-3 mb-4">
           <div className="flex-1 min-w-0 py-3 px-4 rounded-xl bg-[var(--color-bg-secondary)]/60 border border-[var(--color-border-subtle)]">
             <div className="text-[9px] text-[var(--color-text-dim)] font-semibold uppercase tracking-wider mb-1">המלצה</div>
-            <div className="text-[13px] font-bold text-white truncate">{tip.recommendation}</div>
+            <div className="text-[13px] font-bold text-[var(--color-text-white)] truncate">{tip.recommendation}</div>
           </div>
           <div className={`px-4 py-3 rounded-xl bg-gradient-to-br ${confGradient} text-center flex-shrink-0`}>
             <div className="text-[9px] font-semibold text-black/60 uppercase">מקדם</div>
@@ -152,7 +152,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
         </div>
 
         {/* Confidence bar */}
-        <div className="h-1 rounded-full bg-white/5 overflow-hidden mb-4">
+        <div className="h-1 rounded-full bg-black/5 overflow-hidden mb-4">
           <div
             className={`h-full rounded-full bg-gradient-to-l ${confGradient} transition-all duration-1000`}
             style={{ width: `${tip.confidence}%` }}
@@ -181,7 +181,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
               </div>
               <div className="p-2.5 rounded-lg bg-[var(--color-bg-secondary)] text-center">
                 <div className="text-[9px] text-[var(--color-text-dim)] mb-1">ענף</div>
-                <div className="text-sm font-bold text-white">{tip.sportLabel}</div>
+                <div className="text-sm font-bold text-[var(--color-text-white)]">{tip.sportLabel}</div>
               </div>
             </div>
 
@@ -201,7 +201,7 @@ export default function TipCard({ tip }: { tip: Tip }) {
               </a>
               <button
                 onClick={(e) => { e.stopPropagation(); setExpanded(false); }}
-                className="px-4 py-2.5 rounded-xl text-xs font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] hover:text-white transition-all border border-[var(--color-border-subtle)]"
+                className="px-4 py-2.5 rounded-xl text-xs font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] hover:text-[var(--color-text-white)] transition-all border border-[var(--color-border-subtle)]"
               >
                 סגור
               </button>

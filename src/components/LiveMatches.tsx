@@ -202,8 +202,8 @@ function OddsButton({
           : "bg-[var(--color-bg-secondary)] hover:bg-[var(--color-accent-primary)]/10 border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)]"
       }`}
     >
-      <span className={`text-[9px] block ${isSelected ? "text-black/60" : "text-[var(--color-text-dim)]"}`}>{label}</span>
-      <span className={`text-xs font-bold ${isSelected ? "text-black" : "text-[var(--color-accent-primary)]"}`}>{value}</span>
+      <span className={`text-[9px] block ${isSelected ? "text-white/70" : "text-[var(--color-text-dim)]"}`}>{label}</span>
+      <span className={`text-xs font-bold ${isSelected ? "text-white" : "text-[var(--color-accent-primary)]"}`}>{value}</span>
     </button>
   );
 }
@@ -512,7 +512,7 @@ export default function LiveMatches() {
               onClick={() => setFilter(f.id)}
               className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                 filter === f.id
-                  ? "bg-[var(--color-accent-primary)] text-[var(--color-bg-deep)]"
+                  ? "bg-[var(--color-accent-primary)] text-white"
                   : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)]"
               }`}
             >
@@ -540,10 +540,10 @@ export default function LiveMatches() {
         {totalSelected > 0 && (
           <div className="fixed bottom-24 right-6 z-40 animate-scale-in">
             <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] shadow-xl shadow-[var(--color-accent-primary)]/20">
-              <div className="text-sm font-bold text-black">{totalSelected} בחירות</div>
+              <div className="text-sm font-bold text-white">{totalSelected} בחירות</div>
               <button
                 onClick={() => setSelectedOdds({})}
-                className="text-xs font-medium text-black/60 hover:text-black transition-colors"
+                className="text-xs font-medium text-white/70 hover:text-white transition-colors"
               >
                 נקה
               </button>

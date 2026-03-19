@@ -8,11 +8,11 @@ const siteDescription =
   "WinnerTips - מערכת ניתוח ספורט מתקדמת מבוססת בינה מלאכותית. המלצות יומיות לכדורגל, כדורסל, טניס, הוקי, UFC ועוד מ-50+ ליגות בעולם. 78% הצלחה מוכחת. תוצאות חיות, ניתוחים מקצועיים וערוץ VIP בווצאפ.";
 
 export const viewport: Viewport = {
-  themeColor: "#09090b",
+  themeColor: "#f0f2f5",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
