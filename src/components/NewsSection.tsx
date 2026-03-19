@@ -155,7 +155,7 @@ export default function NewsSection() {
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
-            <div className="w-1 h-8 rounded-full bg-gradient-to-b from-red-500 to-amber-500" />
+            <div className="w-1 h-8 rounded-full bg-gradient-to-b from-red-500 to-[var(--color-accent-primary)]" />
             <div>
               <h2 className="text-2xl md:text-3xl font-black text-[var(--color-text-white)]">מגזין ספורט</h2>
               <p className="text-sm text-[var(--color-text-muted)]">חדשות / ניתוחים / לחצו לקריאה</p>

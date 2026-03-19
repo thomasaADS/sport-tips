@@ -8,11 +8,11 @@ const siteDescription =
   "WinnerTips - מערכת ניתוח ספורט מתקדמת מבוססת בינה מלאכותית. המלצות יומיות לכדורגל, כדורסל, טניס, הוקי, UFC ועוד מ-50+ ליגות בעולם. 78% הצלחה מוכחת. תוצאות חיות, ניתוחים מקצועיים וערוץ VIP בווצאפ.";
 
 export const viewport: Viewport = {
-  themeColor: "#f0f2f5",
+  themeColor: "#0C1220",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 export const metadata: Metadata = {
@@ -209,6 +209,18 @@ const jsonLdBreadcrumb = {
       name: "דף הבית",
       item: siteUrl,
     },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "תמיכה",
+      item: `${siteUrl}/support`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "תנאי שימוש",
+      item: `${siteUrl}/terms`,
+    },
   ],
 };
 
@@ -240,7 +252,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

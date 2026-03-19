@@ -1,53 +1,52 @@
 @import "tailwindcss";
 
-/* Heebo font loaded via <link> in layout.tsx */
+/* Rubik font loaded via <link> in layout.tsx */
 
 @theme {
-  /* === LIGHT PREMIUM THEME === */
-  --color-bg-deep: #f0f2f5;
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f7f8fa;
-  --color-bg-card: #ffffff;
-  --color-bg-card-hover: #f5f7fa;
-  --color-bg-elevated: #ebeef3;
-  --color-bg-input: #f0f2f5;
+  /* === PREMIUM SPORTS DARK === */
+  --color-bg-deep: #0C1220;
+  --color-bg-primary: #111B2B;
+  --color-bg-secondary: #162033;
+  --color-bg-card: #1A2740;
+  --color-bg-card-hover: #213250;
+  --color-bg-elevated: #263A55;
+  --color-bg-input: #162033;
 
-  /* Vibrant sport accents */
-  --color-accent-primary: #1a56db;
-  --color-accent-secondary: #3b82f6;
-  --color-accent-tertiary: #1e40af;
-  --color-accent-glow: rgba(26, 86, 219, 0.15);
-  --color-accent-blue: #2563eb;
-  --color-accent-blue-glow: rgba(37, 99, 235, 0.12);
-  --color-accent-purple: #7c3aed;
-  --color-accent-cyan: #0891b2;
+  /* Vivid sport accents */
+  --color-accent-primary: #00E676;
+  --color-accent-secondary: #69F0AE;
+  --color-accent-tertiary: #00C853;
+  --color-accent-glow: rgba(0, 230, 118, 0.15);
+  --color-accent-blue: #2196F3;
+  --color-accent-blue-glow: rgba(33, 150, 243, 0.12);
+  --color-accent-purple: #7C4DFF;
+  --color-accent-cyan: #00BCD4;
 
-  --color-success: #16a34a;
-  --color-success-bg: rgba(22, 163, 74, 0.1);
-  --color-danger: #dc2626;
-  --color-danger-bg: rgba(220, 38, 38, 0.08);
-  --color-warning: #d97706;
-  --color-warning-bg: rgba(217, 119, 6, 0.08);
+  --color-success: #00E676;
+  --color-success-bg: rgba(0, 230, 118, 0.1);
+  --color-danger: #FF1744;
+  --color-danger-bg: rgba(255, 23, 68, 0.1);
+  --color-warning: #FFD600;
+  --color-warning-bg: rgba(255, 214, 0, 0.1);
 
-  /* Dark text on light backgrounds */
-  --color-text-white: #111827;
-  --color-text-primary: #1f2937;
-  --color-text-secondary: #4b5563;
-  --color-text-muted: #9ca3af;
-  --color-text-dim: #d1d5db;
+  --color-text-white: #FFFFFF;
+  --color-text-primary: #E0E6ED;
+  --color-text-secondary: #8899AA;
+  --color-text-muted: #5C6F82;
+  --color-text-dim: #3D4F62;
 
-  --color-border-subtle: rgba(0, 0, 0, 0.06);
-  --color-border-default: rgba(0, 0, 0, 0.1);
-  --color-border-accent: rgba(26, 86, 219, 0.3);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-accent: rgba(0, 230, 118, 0.3);
 
   --color-whatsapp: #25d366;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 4px 20px rgba(26, 86, 219, 0.12);
-  --shadow-glow-blue: 0 4px 20px rgba(37, 99, 235, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(0, 230, 118, 0.08);
+  --shadow-glow-blue: 0 0 30px rgba(33, 150, 243, 0.08);
 }
 
 *, *::before, *::after {
@@ -67,15 +66,15 @@ body {
   background: var(--color-bg-deep);
   color: var(--color-text-primary);
   min-height: 100vh;
-  font-family: 'Heebo', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Rubik', 'Heebo', system-ui, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 /* === Premium Scrollbar === */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0f2f5; }
-::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #0C1220; }
+::-webkit-scrollbar-thumb { background: #263A55; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-primary); }
 
 /* === No Scrollbar for horizontal scroll areas === */
@@ -135,8 +134,8 @@ body {
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(26, 86, 219, 0.1), 0 0 24px rgba(26, 86, 219, 0.05); }
-  50% { box-shadow: 0 0 16px rgba(26, 86, 219, 0.2), 0 0 48px rgba(26, 86, 219, 0.08); }
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 230, 118, 0.1), 0 0 24px rgba(0, 230, 118, 0.05); }
+  50% { box-shadow: 0 0 16px rgba(0, 230, 118, 0.2), 0 0 48px rgba(0, 230, 118, 0.08); }
 }
 
 @keyframes counter {
@@ -176,7 +175,7 @@ body {
 
 /* === Premium Text Effects === */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #1a56db 0%, #3b82f6 30%, #7c3aed 70%, #1a56db 100%);
+  background: linear-gradient(135deg, #00E676 0%, #69F0AE 30%, #ffffff 50%, #00E676 70%, #00C853 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -192,7 +191,7 @@ body {
 }
 
 .text-gradient-multi {
-  background: linear-gradient(135deg, #1a56db, #7c3aed, #dc2626, #16a34a, #d97706);
+  background: linear-gradient(135deg, #00E676, #7C4DFF, #FF1744, #00BCD4, #FFD600);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -202,14 +201,14 @@ body {
 
 /* === Glass Morphism === */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(17, 27, 43, 0.8);
   backdrop-filter: blur(16px) saturate(1.5);
   -webkit-backdrop-filter: blur(16px) saturate(1.5);
   border: 1px solid var(--color-border-subtle);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(12, 18, 32, 0.92);
   backdrop-filter: blur(24px) saturate(1.8);
   -webkit-backdrop-filter: blur(24px) saturate(1.8);
   border: 1px solid var(--color-border-default);
@@ -230,7 +229,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(26, 86, 219, 0.02) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.04) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.35s;
   pointer-events: none;
@@ -250,13 +249,13 @@ body {
 
 /* === Accent Card Variant === */
 .card-accent {
-  background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(26, 86, 219, 0.03) 100%);
+  background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(0, 230, 118, 0.05) 100%);
   border: 1px solid var(--color-border-accent);
   border-radius: 16px;
 }
 
 .card-accent:hover {
-  box-shadow: var(--shadow-xl), 0 0 60px rgba(26, 86, 219, 0.05);
+  box-shadow: var(--shadow-xl), 0 0 60px rgba(0, 230, 118, 0.08);
 }
 
 /* === Live Badge === */
@@ -292,7 +291,7 @@ body {
 /* === Premium Button === */
 .btn-primary {
   background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-tertiary) 100%);
-  color: #ffffff;
+  color: #0C1220;
   font-weight: 700;
   padding: 10px 24px;
   border-radius: 12px;
@@ -314,7 +313,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(26, 86, 219, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 230, 118, 0.3);
 }
 
 .btn-primary:hover::after {
@@ -364,7 +363,7 @@ body {
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, var(--color-border-default) 20%, var(--color-accent-primary) 50%, var(--color-border-default) 80%, transparent 100%);
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 /* === News Card Image Overlay === */
@@ -419,7 +418,7 @@ body {
 
 /* === Odds Badge === */
 .odds-badge {
-  background: linear-gradient(135deg, var(--color-bg-elevated) 0%, rgba(26, 86, 219, 0.06) 100%);
+  background: linear-gradient(135deg, var(--color-bg-elevated) 0%, rgba(0, 230, 118, 0.08) 100%);
   border: 1px solid var(--color-border-accent);
   border-radius: 8px;
   padding: 4px 12px;
@@ -431,7 +430,7 @@ body {
 
 .odds-badge:hover {
   background: var(--color-accent-primary);
-  color: #ffffff;
+  color: #0C1220;
   border-color: var(--color-accent-primary);
 }
 
@@ -441,16 +440,16 @@ body {
 /* === Hero Background Pattern === */
 .hero-pattern {
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(26, 86, 219, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 60% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 40%);
+    radial-gradient(circle at 20% 50%, rgba(0, 230, 118, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(33, 150, 243, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(124, 77, 255, 0.05) 0%, transparent 40%);
 }
 
 /* === Grid pattern overlay === */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 

@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 
 const sports = [
-  { name: "הכל", id: "all", color: "#f59e0b" },
+  { name: "הכל", id: "all", color: "#00E676" },
   { name: "כדורגל", id: "football", color: "#10b981" },
-  { name: "כדורסל", id: "basketball", color: "#3b82f6" },
-  { name: "טניס", id: "tennis", color: "#8b5cf6" },
-  { name: "הוקי", id: "hockey", color: "#06b6d4" },
-  { name: "MMA", id: "mma", color: "#ef4444" },
+  { name: "כדורסל", id: "basketball", color: "#2196F3" },
+  { name: "טניס", id: "tennis", color: "#7C4DFF" },
+  { name: "הוקי", id: "hockey", color: "#00BCD4" },
+  { name: "MMA", id: "mma", color: "#FF1744" },
   { name: "בייסבול", id: "baseball", color: "#f97316" },
 ];
 
@@ -22,27 +22,27 @@ const navLinks = [
 
 function Logo() {
   return (
-    <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3 cursor-pointer">
-      <div className="relative">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-secondary)] via-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] flex items-center justify-center shadow-lg shadow-[var(--color-accent-primary)]/20">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z"
-              fill="white"
-              stroke="white"
-              strokeWidth="0.5"
-            />
-          </svg>
-        </div>
+    <a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+      className="flex items-center gap-2.5 cursor-pointer"
+    >
+      <div className="w-9 h-9 rounded-lg bg-[#00E676] flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 2L14.9 8.6L22 9.2L16.6 14L18.2 21L12 17.2L5.8 21L7.4 14L2 9.2L9.1 8.6Z"
+            fill="#0C1220"
+            stroke="#0C1220"
+            strokeWidth="0.5"
+          />
+        </svg>
       </div>
-      <div className="flex flex-col">
-        <span className="text-lg font-black tracking-tight text-gradient-gold leading-none">
-          WinnerTips
-        </span>
-        <span className="text-[9px] font-medium text-[var(--color-text-muted)] tracking-widest uppercase">
-          AI Sports Analytics
-        </span>
-      </div>
+      <span className="text-lg font-black tracking-tight text-gradient-gold leading-none">
+        WinnerTips
+      </span>
     </a>
   );
 }
@@ -81,31 +81,9 @@ export default function Header({
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass-strong shadow-lg"
-          : "bg-transparent"
+        scrolled ? "glass-strong shadow-lg" : "bg-transparent"
       }`}
     >
-      {/* Live Ticker Bar */}
-      <div className="bg-[var(--color-bg-secondary)] border-b border-[var(--color-border-subtle)] py-1.5">
-        <div className="ticker-wrap max-w-7xl mx-auto px-4">
-          <div className="ticker text-xs text-[var(--color-text-muted)] font-medium">
-            <span className="flex items-center gap-2">
-              <span className="text-[var(--color-danger)]">&#9679;</span> LIVE
-            </span>
-            <span>ליברפול 2-1 מנצ&apos;סטר סיטי (78&apos;)</span>
-            <span>לייקרס 98-105 סלטיקס (Q4)</span>
-            <span>ברצלונה 1-0 אתלטיקו (45&apos;+2)</span>
-            <span>ג&apos;וקוביץ&apos; 6-4 3-2 סינר (סט 2)</span>
-            <span>באיירן 3-1 דורטמונד (FT)</span>
-            <span>ווריורס 112-108 נאגטס (FT)</span>
-            <span>ליון 2-0 מרסיי (61&apos;)</span>
-            <span>ארסנל 1-1 צ&apos;לסי (55&apos;)</span>
-            <span>ריינג&apos;רס 3-2 פנגווינס (P3)</span>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Nav */}
         <div className="flex items-center justify-between h-14">
@@ -113,32 +91,40 @@ export default function Header({
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                  activeSection === link.href.replace("#", "")
-                    ? "bg-[var(--color-accent-primary)]/10 text-[var(--color-accent-secondary)] border border-[var(--color-border-accent)]"
-                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)]"
-                }`}
-              >
-                {link.name === "LIVE" && (
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-[#00E676]"
+                      : "text-[var(--color-text-secondary)] hover:text-white"
+                  }`}
+                >
+                  {link.name === "LIVE" ? (
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF1744] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF1744]" />
+                      </span>
+                      {link.name}
                     </span>
-                    {link.name}
-                  </span>
-                )}
-                {link.name !== "LIVE" && link.name}
-              </a>
-            ))}
+                  ) : (
+                    link.name
+                  )}
+                  {/* Active underline */}
+                  {isActive && (
+                    <span className="absolute bottom-0 right-4 left-4 h-0.5 bg-[#00E676] rounded-full" />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* CTA + Mobile Menu */}
@@ -147,17 +133,25 @@ export default function Header({
               href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 btn-primary text-sm"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-[#00E676] hover:bg-[#00C853] text-[#0C1220] transition-all"
             >
-              <span>קבוצת VIP</span>
+              <span>VIP</span>
             </a>
 
             <button
-              className="lg:hidden w-10 h-10 rounded-xl bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] transition-colors"
+              className="lg:hidden w-10 h-10 rounded-lg bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[#00E676] transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="תפריט"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              >
                 {menuOpen ? (
                   <>
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -186,7 +180,11 @@ export default function Header({
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="px-4 py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-white)] hover:bg-[var(--color-bg-elevated)] transition-all"
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                  activeSection === link.href.replace("#", "")
+                    ? "text-[#00E676] bg-[#00E676]/10"
+                    : "text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-bg-elevated)]"
+                }`}
               >
                 {link.name}
               </a>
@@ -195,14 +193,14 @@ export default function Header({
               href="https://whatsapp.com/channel/0029VbBHha66xCSMBMTLas3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-3 rounded-xl text-sm font-bold text-[#25D366] hover:bg-[#25D366]/10 transition-all"
+              className="px-4 py-3 rounded-lg text-sm font-bold text-[#00E676] hover:bg-[#00E676]/10 transition-all"
             >
-              קבוצת VIP בווצאפ
+              VIP בווצאפ
             </a>
           </nav>
         )}
 
-        {/* Sport Filter Pills - only show after scrolling */}
+        {/* Sport Filter Pills - show after scroll */}
         {showFilters && (
           <div className="flex gap-2 pb-3 overflow-x-auto no-scrollbar animate-fade-in-down">
             {sports.map((sport) => (
@@ -212,15 +210,17 @@ export default function Header({
                   onFilterChange(sport.id);
                   document.querySelector("#tips")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
                   activeFilter === sport.id
-                    ? "bg-gradient-to-l from-[var(--color-accent-primary)] to-[var(--color-accent-tertiary)] text-white shadow-md"
-                    : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text-white)] border border-[var(--color-border-subtle)]"
+                    ? "bg-[#00E676] text-[#0C1220] shadow-md shadow-[#00E676]/20"
+                    : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-white border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)]"
                 }`}
               >
                 <span
-                  className="w-2 h-2 rounded-full flex-shrink-0"
-                  style={{ background: sport.color }}
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{
+                    background: activeFilter === sport.id ? "#0C1220" : sport.color,
+                  }}
                 />
                 <span>{sport.name}</span>
               </button>

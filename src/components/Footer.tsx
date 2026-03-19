@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-[var(--color-bg-primary)]">
@@ -106,9 +108,25 @@ export default function Footer() {
             {/* About */}
             <div>
               <h4 className="text-[15px] font-bold text-[var(--color-text-white)] mb-8">
-                צרו קשר
+                אודות
               </h4>
               <ul className="space-y-5">
+                <li>
+                  <Link
+                    href="/terms"
+                    className="text-[15px] text-[var(--color-text-muted)] hover:text-[var(--color-text-white)] transition-colors"
+                  >
+                    תקנון
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/support"
+                    className="text-[15px] text-[var(--color-text-muted)] hover:text-[var(--color-text-white)] transition-colors"
+                  >
+                    תמיכה
+                  </Link>
+                </li>
                 <li>
                   <a href="mailto:info@winnertips.co.il" className="text-[15px] text-[var(--color-text-muted)] hover:text-[var(--color-text-white)] transition-colors">
                     info@winnertips.co.il
