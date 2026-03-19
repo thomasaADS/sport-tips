@@ -207,7 +207,7 @@ export default function HeroSection() {
       </section>
 
       {/* === TRANSITION SECTION (always visible after scroll) === */}
-      <section className="relative py-16 px-4">
+      <section className="relative py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* AI analysis visual intro */}
           <div className="text-center mb-16">
@@ -226,7 +226,7 @@ export default function HeroSection() {
           </div>
 
           {/* 3 Steps - clean horizontal */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20">
             {[
               {
                 step: "01",

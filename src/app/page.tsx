@@ -160,7 +160,7 @@ export default function Home() {
         <LiveMatches />
 
         {/* === TIPS SECTION === */}
-        <section id="tips" className="py-20 px-4" aria-label="המלצות ספורט יומיות">
+        <section id="tips" className="py-28 px-4 md:px-6" aria-label="המלצות ספורט יומיות">
           <div className="max-w-7xl mx-auto">
             {/* Section header */}
             <div className="flex items-center justify-between mb-6">
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
 
           {/* Tips Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
             {sortedTips.map((tip, index) => (
               <div
                 key={tip.id}

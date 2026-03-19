@@ -150,7 +150,7 @@ export default function NewsSection() {
   const bottom = newsArticles.slice(4);
 
   return (
-    <section id="news" className="py-20 px-4" aria-label="חדשות ספורט ומגזין">
+    <section id="news" className="py-28 px-4 md:px-6" aria-label="חדשות ספורט ומגזין">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-10">

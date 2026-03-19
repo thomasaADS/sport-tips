@@ -26,7 +26,7 @@ export default function StatsSection() {
   const winRate = Math.round((wins / total) * 100);
 
   return (
-    <section id="stats" className="py-20 px-4" aria-label="סטטיסטיקות ותוצאות המלצות">
+    <section id="stats" className="py-28 px-4 md:px-6" aria-label="סטטיסטיקות ותוצאות המלצות">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-12">
@@ -41,7 +41,7 @@ export default function StatsSection() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Sport breakdown cards */}
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider mb-5">

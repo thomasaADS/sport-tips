@@ -21,7 +21,7 @@ const leagues = [
 
 export default function LeaguesSection() {
   return (
-    <section id="leagues" className="py-20 px-4" aria-label="ליגות ספורט מכוסות">
+    <section id="leagues" className="py-28 px-4 md:px-6" aria-label="ליגות ספורט מכוסות">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-12">

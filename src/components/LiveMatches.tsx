@@ -473,7 +473,7 @@ export default function LiveMatches() {
   const totalSelected = Object.keys(selectedOdds).length;
 
   return (
-    <section id="live" className="py-16 px-4" aria-label="משחקים חיים ותוצאות בזמן אמת">
+    <section id="live" className="py-24 px-4 md:px-6" aria-label="משחקים חיים ותוצאות בזמן אמת">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -522,7 +522,7 @@ export default function LiveMatches() {
         </div>
 
         {/* Matches Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filtered.map((match, i) => (
             <div key={match.id} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
               <MatchRow
